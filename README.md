@@ -17,7 +17,7 @@
 
 - It builds on top of [mocha](https://github.com/visionmedia/mocha), [supertest](https://github.com/visionmedia/supertest), and [sinon](http://sinonjs.org) to have **executable** documentation
 
-- In fact, generating the HMTL documents requires **running the tests**, so your docs are never out of date
+- In fact, generating the HTML documents requires **running the tests**, so your docs are never out of date
 
 ```bash
   API
