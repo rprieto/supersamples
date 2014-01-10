@@ -1,9 +1,9 @@
 
 # api-swatch
 
-> Executable restful API samples
+> Collection of samples for your REST API
 
-![logo](http://raw.github.com/rprieto/api-swatch/master/media/logo.jpg)
+![logo](https://raw.github.com/rprieto/api-swatch/master/media/logo.jpg)
 
 *Works with any `http.Server`, like [Express](https://github.com/visionmedia/express) or [Restify](https://github.com/mcavage/node-restify)*
 
@@ -11,7 +11,7 @@
 - run them against mocks as part of your test suite
 - generate HTML documentation from them
 
-![generated document example](http://raw.github.com/rprieto/api-swatch/master/media/thumbnail.html)
+![generated document example](https://raw.github.com/rprieto/api-swatch/master/media/thumbnail.png)
 
 ## What exactly does it do?
 
@@ -19,7 +19,25 @@
 
 - In fact, generating the HMTL documents requires **running the tests**, so your docs are never out of date
 
-![test output example](http://raw.github.com/rprieto/api-swatch/master/media/test-output.png)
+```bash
+  API
+    Information
+      ✓ Status page
+      Sports
+        ✓ Get list of sports
+      Competitions
+        ✓ Competitions by sport
+        ✓ Filter by country
+    User
+      Tickets
+        ✓ Buying tickets
+        ✓ Cancelling a ticket
+
+
+  6 passing (27ms)
+
+Docs generated in example/output
+```
 
 - `api-swatch` focusses on **concrete request/response examples**. This doesn't give a full-comprehensive output describing every parameter, but it creates high-level documentation people can understand at a glance
 
