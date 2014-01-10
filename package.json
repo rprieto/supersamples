@@ -1,0 +1,46 @@
+{
+  "name": "api-swatch",
+  "version": "0.0.1",
+  "description": "Executable restful API samples",
+  "keywords": [
+    "api",
+    "express",
+    "restify",
+    "test",
+    "testing",
+    "documentation",
+    "docs",
+    "mocha"
+  ],
+  "author": "Romain Prieto",
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rprieto/api-swatch.git"
+  },
+  "main": "lib/builder.js",
+  "scripts": {
+    "start": "node example/index.js",
+    "test": "./node_modules/.bin/mocha"
+  },
+  "bin": {
+    "swatch": "./bin/swatch.js"
+  },
+  "dependencies": {
+    "mocha": "~1.16.2",
+    "lodash": "~2.4.1",
+    "commander": "~2.1.0",
+    "wrench": "~1.5.4",
+    "coffee-script": "~1.6.3",
+    "should": "~2.1.1",
+    "handlebars": "~1.3.0",
+    "sinon": "~1.7.3",
+    "supertest": "~0.8.3",
+    "markdown": "~0.5.0",
+    "http-status-codes": "~1.0.2",
+    "async": "~0.2.9"
+  },
+  "devDependencies": {
+    "express": "~3.4.7"
+  }
+}

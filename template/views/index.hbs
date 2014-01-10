@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>{{title}}</title>
+      <link rel="stylesheet" type="text/css" href="reset.css" />
+      <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+
+    <header>{{title}}</header>
+
+    <!--
+      Side navigation
+    -->
+
+    <nav>
+      <ul>
+        {{#each navigation}}
+          {{>navitem}}
+        {{/each}}
+      </ul>
+    </nav>
+
+    <!--
+      Main documentation
+    -->
+
+    <div class="content">
+      
+      {{#each groups}}
+      
+      <section class="category">
+        <a id="{{link}}"></a>
+        <h1>{{nav}}</h1>
+        <ul class="resources">
+          
+          {{#each samples}}
+          <li>
+            
+            <h2>{{name}}</h2>
+            <div class="summary">
+              {{markdown summary}}
+            </div>
+            
+            <div class="action">
+              <div class="method {{request.req.method}}">{{request.req.method}}</div>
+              <span class="uri">{{request.req.path}}</span>
+            </div>
+            
+            {{#if request._data}}
+            <div class="request-response">
+              <input type="checkbox" class="expander" />
+              <div class="title">Request payload</div>
+              <code class="expandable">
+                <pre>{{json request._data}}</pre>
+              </code>
+            </div>
+            {{/if}}
+
+            <div class="request-response">
+              <input type="checkbox" class="expander" />
+              <div class="title">
+                Response : {{httpStatus response.status}}
+              </div>
+              <code class="expandable">
+                <pre>{{json response.body}}</pre>
+              </code>
+            </div>
+            
+          </li>
+          {{/each}}
+        
+        </ul>
+      
+      </section>
+      
+      {{/each}}
+      
+    </div>
+    
+    <footer>
+      &rarr; Powered by <a href="http://github.com/rprieto/api-swatch">api-swatch</a>
+    </footer>
+
+  </body>
+</html>
+
