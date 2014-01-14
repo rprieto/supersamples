@@ -1,89 +1,53 @@
 <!DOCTYPE html>
-  <html>
+<html>
+
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>{{title}}</title>
-      <link rel="stylesheet" type="text/css" href="reset.css" />
-      <link rel="stylesheet" type="text/css" href="styles.css" />
+      <link rel="stylesheet" href="css/foundation.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/styles.css" />
+      <link rel="stylesheet" type="text/css" href="css/highlight.github.css" />
+      <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
   </head>
-  <body>
 
-    <header>{{title}}</header>
+  <body class="antialiased hide-extras">
+    <div class="inner-wrap">
 
-    <!--
-      Side navigation
-    -->
+      {{> header}}
 
-    <nav>
-      <ul>
-        {{#each navigation}}
-          {{>navitem}}
-        {{/each}}
-      </ul>
-    </nav>
+      <section role="main">
+        <div class="row">
 
-    <!--
-      Main documentation
-    -->
+          <div class="large-3 medium-4 columns">
+            {{> sidebar}}
+          </div>
 
-    <div class="content">
-      
-      {{#each groups}}
-      
-      <section class="category">
-        <a id="{{link}}"></a>
-        <h1>{{nav}}</h1>
-        <ul class="resources">
-          
-          {{#each samples}}
-          <li>
-            
-            <h2>{{name}}</h2>
-            <div class="summary">
-              {{markdown summary}}
-            </div>
-            
-            <div class="action">
-              <div class="method {{request.req.method}}">{{request.req.method}}</div>
-              <span class="uri">{{request.req.path}}</span>
-            </div>
-            
-            {{#if request._data}}
-            <div class="request-response">
-              <input type="checkbox" class="expander" />
-              <div class="title">Request payload</div>
-              <code class="expandable">
-                <pre>{{json request._data}}</pre>
-              </code>
-            </div>
-            {{/if}}
+          <div class="large-9 medium-8 columns content">
 
-            <div class="request-response">
-              <input type="checkbox" class="expander" />
-              <div class="title">
-                Response : {{httpStatus response.status}}
-              </div>
-              <code class="expandable">
-                <pre>{{json response.body}}</pre>
-              </code>
-            </div>
-            
-          </li>
-          {{/each}}
-        
-        </ul>
-      
+            {{markdown intro}}
+
+            {{#each hierarchy}}
+
+              <h1>{{name}}</h1>
+
+              {{#each groups}}
+                {{> group}}
+              {{/each}}
+
+            {{/each}}
+
+          </div>
+
+        </div>
       </section>
-      
-      {{/each}}
-      
+
+      {{> footer}}
+
     </div>
-    
-    <footer>
-      &rarr; Powered by <a href="http://github.com/rprieto/api-swatch">api-swatch</a>
-    </footer>
 
+    <script src="scripts/zepto.min.js"></script>
+    <script src="scripts/scripts.js"></script>
   </body>
-</html>
 
+</html>

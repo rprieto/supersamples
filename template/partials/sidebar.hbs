@@ -1,0 +1,62 @@
+<div class="sidebar">
+  
+  <form>
+    <input tabindex="1" id="autocomplete" type="search"
+          placeholder="search" autocomplete="off" />
+  </form>
+
+  <nav>
+    <ul class="side-nav">
+
+      {{#each navigation}}
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <span>{{name}}</span>
+          </li>
+
+          {{#each subnav}}
+            <li>
+              <a href="#{{link}}" data-search="{{name}}">
+                {{name}}
+                {{#if count}}
+                  <span class="label">{{count}}</span>
+                {{/if}}
+              </a>
+            </li>
+          {{/each}}
+
+      {{/each}}
+
+
+{{!-- 
+      {{#each navigation}}
+
+        {{#if link}}
+
+          <li>
+            <a href="#{{link}}" data-search="{{text}}">
+              {{text}}
+              {{#if count}}
+                <span class="label">{{count}}</span>
+              {{/if}}
+            </a>
+          </li>
+
+        {{else}}
+
+          <li class="divider"></li>
+          <li class="heading">
+            <span>{{text}}</span>
+          </li>
+
+        {{/if}}
+
+      {{/each}}
+--}}
+
+    </ul>
+  </nav>
+
+</div>
