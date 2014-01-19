@@ -5,4 +5,8 @@ clean:
 example:
 	@node ./bin/swatch --input example/api_tests --output example/output
 
-.PHONY: clean example
+# shortcut to open the example output
+open:
+	open example/output/index.html
+
+.PHONY: clean example open

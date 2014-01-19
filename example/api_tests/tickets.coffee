@@ -12,8 +12,8 @@ swatch server, (api) ->
 
   api.sample (spec, agent) ->
 
-    spec.nav  = 'API / User / Tickets'
-    spec.name = 'Buying tickets'
+    spec.group = 'User / Tickets'
+    spec.name  = 'Buying tickets'
     spec.summary =
       '''
       This is an **authenticated** call.
@@ -38,8 +38,8 @@ swatch server, (api) ->
 
   api.sample (spec, agent) ->
 
-    spec.nav  = 'API / User / Tickets'
-    spec.name = 'Cancelling a ticket'
+    spec.group = 'User / Tickets'
+    spec.name  = 'Cancelling a ticket'
     spec.summary =
       '''
       This is an **authenticated** call.

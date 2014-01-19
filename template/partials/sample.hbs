@@ -1,0 +1,48 @@
+<div class="summary">
+  <h3>{{name}}</h3>
+  {{markdown summary}}
+</div>
+
+<div class="action color-{{request.req.method}}">
+  <div class="method">{{request.req.method}}</div>
+  <span class="uri">{{request.req.path}}</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample{{id}}-request-headers">headers</a><span>
+    {{#if request._data}}
+      / <a href="#sample{{id}}-request-payload">payload</a>
+    {{/if}}
+    ]
+  </div>
+</div>
+
+<div id="sample{{id}}-request-headers" class="collapsible">
+  {{headers request.req._headers}}
+</div>
+<div id="sample{{id}}-request-payload" class="collapsible">
+  {{json request._data}}
+</div>
+
+<div class="action response">
+  Response
+  <span>{{httpStatus actualResponse.status}}</span>
+  <div class="expanders">
+    [
+    <a href="#sample{{id}}-response-headers">headers</a>
+    {{#if actualResponse.body}}
+      / <a href="#sample{{id}}-response-body">body</a>
+    {{/if}}
+    ]
+  </div>
+</div>
+
+<div id="sample{{id}}-response-headers" class="collapsible">
+  {{headers actualResponse.headers}}
+</div>
+<div id="sample{{id}}-response-body" class="collapsible">
+  {{json actualResponse.body}}
+</div>

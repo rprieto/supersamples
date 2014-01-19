@@ -14,20 +14,17 @@ swatch server, (api) ->
   # This represents an action on a concrete resource, with a request/response pair
   api.sample (spec, agent) ->
 
-    # Docs are nested in a typical breadcrumbs structure
-    # The creadcrumbs are collated and merged across all test files
-    spec.nav  = 'API / Information / Sports'
+    # A two-level category
+    # Samples are grouped across all test files to create the side navigation
+    spec.group = 'Events / Sports'
 
-    # Unique name to identify this example
-    spec.name = 'Get list of sports'
+    # A single-line name for this sample
+    spec.name  = 'Get list of sports'
 
-    # Optional summary in Markdown format
-    # Keep it short so it doesn't need much maintenance
+    # Optional Markdown text displayed with each sample
     spec.summary =
       '''
-      Get the full list of sports:
-
-      - ordered alphabetically
+      - list is ordered alphabetically
       - doesn't return sports with no active competitions
       '''
 
@@ -55,16 +52,15 @@ swatch server, (api) ->
         ]
 
 
-  # Another sample
-  # For a different resource
+  # Another sample for a different resource (competitions)
   api.sample (spec, agent) ->
 
-    spec.nav  = 'API / Information / Competitions'
-    spec.name = 'Competitions by sport'
-    spec.summary =
+    spec.group = 'Events / Competitions'
+    spec.name  = 'Competitions by sport'
+    spec.summary  =
       '''
-      - List of open competitions for a given sport.
-      - Returns all countries by default.
+      - List of **open** competitions for a given sport.
+      - Returns all countries by default.    
       '''
 
     spec.before = [fixtures.fakeSports]
@@ -83,16 +79,15 @@ swatch server, (api) ->
         ]
 
 
-  # One more
-  # Reusing the same "nav" to by grouped with similar samples
+  # One more sample, reusing the same level 2 grouping
   api.sample (spec, agent) ->
 
-    spec.nav  = 'API / Information / Competitions'
-    spec.name = 'Filter by country'
+    spec.group = 'Events / Competitions'
+    spec.name  = 'Filter by country'
     spec.summary =
       '''
-      - Only get competitions for a given country.
-      - Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1).
+      - Only get competitions for a given country
+      - Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)
       '''
 
     spec.before = [fixtures.fakeSports]

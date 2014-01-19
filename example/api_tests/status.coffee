@@ -12,8 +12,8 @@ swatch server, (api) ->
 
   api.sample (spec, agent) ->
 
-    spec.nav  = 'API / Information'
-    spec.name = 'Status page'
+    spec.group = 'Admin / Reporting'
+    spec.name  = 'Status check'
     spec.summary =
       '''
       Health check route to check the status of all downstreams system.
