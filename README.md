@@ -11,7 +11,9 @@
 - run them against mocks as part of your test suite
 - generate HTML documentation from them
 
-![generated document example](https://raw.github.com/rprieto/api-swatch/master/media/output.png)
+<a href="https://raw.github.com/rprieto/api-swatch/master/media/output.png">
+  <img src="https://raw.github.com/rprieto/api-swatch/master/media/output-thumbnail.png" alt="generated document example" />
+</a>
 
 ## What exactly does it do?
 
