@@ -12,42 +12,28 @@
   </head>
 
   <body class="antialiased hide-extras">
-    <div class="inner-wrap">
 
-      {{> header}}
+    {{> sidebar}}
 
-      <section role="main">
-        <div class="row">
+    <div class="content-top"></div>
+    <div class="content">
 
-          <div class="large-3 medium-4 columns">
-            {{> sidebar}}
-          </div>
+      {{markdown intro}}
 
-          <div class="large-9 medium-8 columns content">
-
-            {{markdown intro}}
-
-            {{#each hierarchy}}
-
-              <h1>{{name}}</h1>
-
-              {{#each groups}}
-                {{> group}}
-              {{/each}}
-
-            {{/each}}
-
-          </div>
-
-        </div>
-      </section>
-
-      {{> footer}}
+      {{#each hierarchy}}
+        <h1>{{name}}</h1>
+        {{#each groups}}
+          {{> group}}
+        {{/each}}
+      {{/each}}
 
     </div>
 
+    {{> footer}}
+
     <script src="scripts/zepto.min.js"></script>
     <script src="scripts/scripts.js"></script>
+
   </body>
 
 </html>

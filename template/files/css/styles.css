@@ -36,6 +36,13 @@ body {
   cursor: default;
 }
 
+.top-bar {
+  background-color: #5bc0de;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
 .top-bar h1 {
   color: #fff;
   font-weight: normal;
@@ -59,11 +66,38 @@ section[role=main] {
   max-width: 80rem;
 }
 
+.sidebar-top {
+  background-color: #5bc0de;
+  color: #fff;
+  height: 3em;
+  line-height: 3em;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 19em;
+}
+
 .sidebar {
   background: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 0 0 15px 15px;
-  padding: 32px 20px;
+  border-right: 1px solid #ddd;
+  height: 100%;
+  padding-bottom: 10em;
+  position: fixed;
+  top: 3em;
+  width: 19em;
+}
+
+.sidebar form {
+  margin: 0;
+  padding: 2em 1.5em 0 1.5em;
+}
+
+.sidebar input {
+  margin: 0;
+}
+
+.side-nav {
+  padding: 1.5em;
 }
 
 .side-nav .divider:first-child {
@@ -109,13 +143,30 @@ section[role=main] {
   background: #fff;
 }
 
+.content-top {
+  background-color: #5bc0de;
+  color: #fff;
+  height: 3em;
+  width: 100%;
+}
+
 .content {
+  margin-left: 19em;
   min-height: 40em;
+  padding: 0 3em 2em 3em;
 }
 
 .content h1 {
-  padding: 0.2em 0;
-  margin: 1em 0 0.5em 0;
+  background: #fafafa;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  margin: 1.5em -1.1em 1em -1.1em;
+  padding: 0.2em 1em;
+}
+
+.content h1:first-of-type {
+  margin-top: 0;
+  border-top: none;
 }
 
 .content h3 {
@@ -138,10 +189,12 @@ ul.samples {
 }
 
 .summary {
-  border-left: 4px solid #eee;
   margin: 1.5em 0;
-  padding-left: 1.5em;
   color: #666;
+}
+
+.summary ul {
+  margin-left: 2em;
 }
 
 .summary li {
@@ -173,12 +226,12 @@ ul.samples {
 }
 
 .action.request {
-  background: #f3f3f3;
+  background: #fafafa;
   padding: 1em;
 }
 
 .action.response {
-  background: #f3f3f3;
+  background: #fafafa;
   padding: 0 1em 1em 1em;
 }
 
@@ -192,7 +245,7 @@ ul.samples {
 }
 
 .samples pre {
-  border: 1em solid #f3f3f3;
+  border: 1em solid #fafafa;
   border-top: none;
 }
 
@@ -206,7 +259,7 @@ code {
 pre code {
   display: block;
   padding: 1em;
-  background: #fafafa;
+  background: #fff;
   color: #333333;
 }
  
@@ -224,6 +277,8 @@ footer {
   color: #eee;
   font-style: italic;
   padding: 24px 0 10px;
+  position: relative;
+  z-index: 1;
 }
 
 footer ul {
