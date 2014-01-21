@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>API Documentation</title>
+      <link rel="stylesheet" href="css/foundation.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/styles.css" />
+      <link rel="stylesheet" type="text/css" href="css/highlight.github.css" />
+      <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+  </head>
+
+  <body class="antialiased hide-extras">
+
+    <div class="sidebar-top">
+  <i class="fa fa-book"></i>
+  API Documentation
+</div>
+
+<div class="sidebar">
+  
+  <form>
+    <input tabindex="1" id="autocomplete" type="search"
+          placeholder="search" autocomplete="off" />
+  </form>
+
+  <nav>
+    <ul class="side-nav">
+
+      
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <span>Intro</span>
+          </li>
+
+          
+            <li>
+              <a href="#linkeventinformation" data-search="Event information">
+                Event information
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="#linkauthenticatedcalls" data-search="Authenticated calls">
+                Authenticated calls
+                
+              </a>
+            </li>
+          
+
+      
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <span>Admin</span>
+          </li>
+
+          
+            <li>
+              <a href="#linkadminreporting" data-search="Reporting">
+                Reporting
+                
+                  <span class="label">1</span>
+                
+              </a>
+            </li>
+          
+
+      
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <span>Events</span>
+          </li>
+
+          
+            <li>
+              <a href="#linkeventscompetitions" data-search="Competitions">
+                Competitions
+                
+                  <span class="label">2</span>
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="#linkeventssports" data-search="Sports">
+                Sports
+                
+                  <span class="label">1</span>
+                
+              </a>
+            </li>
+          
+
+      
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <span>User</span>
+          </li>
+
+          
+            <li>
+              <a href="#linkusertickets" data-search="Tickets">
+                Tickets
+                
+                  <span class="label">2</span>
+                
+              </a>
+            </li>
+          
+
+      
+
+
+
+
+    </ul>
+  </nav>
+
+</div>
+
+
+    <div class="content-top"></div>
+    <div class="content">
+
+      <a name="linkintro"></a>
+<h1>Intro</h1><p>This is a sample API that doesn&#39;t do much.
+It has:</p>
+<ul>
+<li>several resources</li>
+<li>a mix of HTTP verbs</li>
+<li>up to date documentation :)</li>
+</ul>
+<a name="linkeventinformation"></a>
+<h2>Event information</h2><p>All informational resources are cacheable by proxies or on the client-side. These routes are public, and there is no rate-limiting.</p>
+<a name="linkauthenticatedcalls"></a>
+<h2>Authenticated calls</h2><p>You need to pass your custom API token as a request header:</p>
+<pre><code><span class="hljs-attribute">X-API-Token</span>: <span class="hljs-string">76ac098ef08d61b824a</span></code></pre>
+
+      
+        <h1>Admin</h1>
+        
+          <div class="group">
+
+  <a name="linkadminreporting"></a>
+  <h2>Reporting</h2>
+  
+  <ul class="samples">
+    
+      <li>
+        <div class="summary">
+  <h3>Status check</h3>
+  <p>Health check route to check the status of all downstreams system.</p>
+
+</div>
+
+<div class="action color-GET">
+  <div class="method">GET</div>
+  <span class="uri">/status</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample3-request-headers">headers</a><span>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample3-request-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">host</span>: <span class="hljs-string">127.0.0.1:56578</span>
+<span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
+<span class="hljs-attribute">cookie</span>: <span class="hljs-string"></span>
+<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+</code></pre>
+</div>
+<div id="sample3-request-payload" class="collapsible">
+  
+</div>
+
+<div class="action response">
+  Response
+  <span>200 OK</span>
+  <div class="expanders">
+    [
+    <a href="#sample3-response-headers">headers</a>
+    
+      / <a href="#sample3-response-body">body</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample3-response-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">x-powered-by</span>: <span class="hljs-string">Express</span>
+<span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+<span class="hljs-attribute">content-length</span>: <span class="hljs-string">20</span>
+<span class="hljs-attribute">etag</span>: <span class="hljs-string">"-1438810484"</span>
+<span class="hljs-attribute">date</span>: <span class="hljs-string">Tue, 21 Jan 2014 01:34:45 GMT</span>
+<span class="hljs-attribute">connection</span>: <span class="hljs-string">close</span>
+</code></pre>
+</div>
+<div id="sample3-response-body" class="collapsible">
+  <pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span>
+</span>}</code></pre>
+</div>
+
+      </li>
+    
+  </ul>
+
+</div>
+
+        
+      
+        <h1>Events</h1>
+        
+          <div class="group">
+
+  <a name="linkeventscompetitions"></a>
+  <h2>Competitions</h2>
+  
+  <ul class="samples">
+    
+      <li>
+        <div class="summary">
+  <h3>Competitions by sport</h3>
+  <ul>
+<li>List of <strong>open</strong> competitions for a given sport.</li>
+<li>Returns all countries by default.    </li>
+</ul>
+
+</div>
+
+<div class="action color-GET">
+  <div class="method">GET</div>
+  <span class="uri">/sports/1/competitions</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample1-request-headers">headers</a><span>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample1-request-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">host</span>: <span class="hljs-string">127.0.0.1:56574</span>
+<span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
+<span class="hljs-attribute">cookie</span>: <span class="hljs-string"></span>
+<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+</code></pre>
+</div>
+<div id="sample1-request-payload" class="collapsible">
+  
+</div>
+
+<div class="action response">
+  Response
+  <span>200 OK</span>
+  <div class="expanders">
+    [
+    <a href="#sample1-response-headers">headers</a>
+    
+      / <a href="#sample1-response-body">body</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample1-response-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">x-powered-by</span>: <span class="hljs-string">Express</span>
+<span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+<span class="hljs-attribute">content-length</span>: <span class="hljs-string">199</span>
+<span class="hljs-attribute">etag</span>: <span class="hljs-string">"1095473312"</span>
+<span class="hljs-attribute">date</span>: <span class="hljs-string">Tue, 21 Jan 2014 01:34:45 GMT</span>
+<span class="hljs-attribute">connection</span>: <span class="hljs-string">close</span>
+</code></pre>
+</div>
+<div id="sample1-response-body" class="collapsible">
+  <pre><code>{
+  "<span class="hljs-attribute">competitions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">country</span>": <span class="hljs-value"><span class="hljs-string">"gb"</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"English premier league"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">country</span>": <span class="hljs-value"><span class="hljs-string">"fr"</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Coupe de France"</span>
+    </span>}
+  ]
+</span>}</code></pre>
+</div>
+
+      </li>
+    
+      <li>
+        <div class="summary">
+  <h3>Filter by country</h3>
+  <ul>
+<li>Only get competitions for a given country</li>
+<li>Uses the official ISO <a href="http://en.wikipedia.org/wiki/ISO_3166-1">country codes</a></li>
+</ul>
+
+</div>
+
+<div class="action color-GET">
+  <div class="method">GET</div>
+  <span class="uri">/sports/1/competitions?country=fr</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample2-request-headers">headers</a><span>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample2-request-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">host</span>: <span class="hljs-string">127.0.0.1:56576</span>
+<span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
+<span class="hljs-attribute">cookie</span>: <span class="hljs-string"></span>
+<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+</code></pre>
+</div>
+<div id="sample2-request-payload" class="collapsible">
+  
+</div>
+
+<div class="action response">
+  Response
+  <span>200 OK</span>
+  <div class="expanders">
+    [
+    <a href="#sample2-response-headers">headers</a>
+    
+      / <a href="#sample2-response-body">body</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample2-response-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">x-powered-by</span>: <span class="hljs-string">Express</span>
+<span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+<span class="hljs-attribute">content-length</span>: <span class="hljs-string">109</span>
+<span class="hljs-attribute">etag</span>: <span class="hljs-string">"102418998"</span>
+<span class="hljs-attribute">date</span>: <span class="hljs-string">Tue, 21 Jan 2014 01:34:45 GMT</span>
+<span class="hljs-attribute">connection</span>: <span class="hljs-string">close</span>
+</code></pre>
+</div>
+<div id="sample2-response-body" class="collapsible">
+  <pre><code>{
+  "<span class="hljs-attribute">competitions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">country</span>": <span class="hljs-value"><span class="hljs-string">"fr"</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Coupe de France"</span>
+    </span>}
+  ]
+</span>}</code></pre>
+</div>
+
+      </li>
+    
+  </ul>
+
+</div>
+
+        
+          <div class="group">
+
+  <a name="linkeventssports"></a>
+  <h2>Sports</h2>
+  
+  <ul class="samples">
+    
+      <li>
+        <div class="summary">
+  <h3>Get list of sports</h3>
+  <ul>
+<li>list is ordered alphabetically</li>
+<li>doesn&#39;t return sports with no active competitions</li>
+</ul>
+
+</div>
+
+<div class="action color-GET">
+  <div class="method">GET</div>
+  <span class="uri">/sports</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample0-request-headers">headers</a><span>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample0-request-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">host</span>: <span class="hljs-string">127.0.0.1:56572</span>
+<span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
+<span class="hljs-attribute">cookie</span>: <span class="hljs-string"></span>
+<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+</code></pre>
+</div>
+<div id="sample0-request-payload" class="collapsible">
+  
+</div>
+
+<div class="action response">
+  Response
+  <span>200 OK</span>
+  <div class="expanders">
+    [
+    <a href="#sample0-response-headers">headers</a>
+    
+      / <a href="#sample0-response-body">body</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample0-response-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">x-powered-by</span>: <span class="hljs-string">Express</span>
+<span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+<span class="hljs-attribute">content-length</span>: <span class="hljs-string">122</span>
+<span class="hljs-attribute">etag</span>: <span class="hljs-string">"-1535706504"</span>
+<span class="hljs-attribute">date</span>: <span class="hljs-string">Tue, 21 Jan 2014 01:34:45 GMT</span>
+<span class="hljs-attribute">connection</span>: <span class="hljs-string">close</span>
+</code></pre>
+</div>
+<div id="sample0-response-body" class="collapsible">
+  <pre><code>{
+  "<span class="hljs-attribute">sports</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Soccer"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Tennis"</span>
+    </span>}
+  ]
+</span>}</code></pre>
+</div>
+
+      </li>
+    
+  </ul>
+
+</div>
+
+        
+      
+        <h1>User</h1>
+        
+          <div class="group">
+
+  <a name="linkusertickets"></a>
+  <h2>Tickets</h2>
+  
+  <ul class="samples">
+    
+      <li>
+        <div class="summary">
+  <h3>Buying tickets</h3>
+  <p>This is an <strong>authenticated</strong> call.</p>
+<ul>
+<li>you can purchase multiple tickets at once</li>
+<li>keep your ticket numbers somewhere safe</li>
+</ul>
+
+</div>
+
+<div class="action color-POST">
+  <div class="method">POST</div>
+  <span class="uri">/tickets</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample4-request-headers">headers</a><span>
+    
+      / <a href="#sample4-request-payload">payload</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample4-request-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">host</span>: <span class="hljs-string">127.0.0.1:56580</span>
+<span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
+<span class="hljs-attribute">cookie</span>: <span class="hljs-string"></span>
+<span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">content-length</span>: <span class="hljs-string">32</span>
+</code></pre>
+</div>
+<div id="sample4-request-payload" class="collapsible">
+  <pre><code>{
+  "<span class="hljs-attribute">competitionId</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+  "<span class="hljs-attribute">quantity</span>": <span class="hljs-value"><span class="hljs-number">3</span>
+</span>}</code></pre>
+</div>
+
+<div class="action response">
+  Response
+  <span>201 Created</span>
+  <div class="expanders">
+    [
+    <a href="#sample4-response-headers">headers</a>
+    
+      / <a href="#sample4-response-body">body</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample4-response-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">x-powered-by</span>: <span class="hljs-string">Express</span>
+<span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+<span class="hljs-attribute">content-length</span>: <span class="hljs-string">100</span>
+<span class="hljs-attribute">date</span>: <span class="hljs-string">Tue, 21 Jan 2014 01:34:45 GMT</span>
+<span class="hljs-attribute">connection</span>: <span class="hljs-string">close</span>
+</code></pre>
+</div>
+<div id="sample4-response-body" class="collapsible">
+  <pre><code>{
+  "<span class="hljs-attribute">eventName</span>": <span class="hljs-value"><span class="hljs-string">"Australian Open"</span></span>,
+  "<span class="hljs-attribute">tickets</span>": <span class="hljs-value">[
+    <span class="hljs-string">"ticket1"</span>,
+    <span class="hljs-string">"ticket2"</span>,
+    <span class="hljs-string">"ticket3"</span>
+  ]
+</span>}</code></pre>
+</div>
+
+      </li>
+    
+      <li>
+        <div class="summary">
+  <h3>Cancelling a ticket</h3>
+  <p>This is an <strong>authenticated</strong> call.</p>
+<ul>
+<li>your account will be re-credited with the amount</li>
+</ul>
+
+</div>
+
+<div class="action color-DELETE">
+  <div class="method">DELETE</div>
+  <span class="uri">/tickets/123</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample5-request-headers">headers</a><span>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample5-request-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">host</span>: <span class="hljs-string">127.0.0.1:56582</span>
+<span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
+<span class="hljs-attribute">cookie</span>: <span class="hljs-string"></span>
+<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+</code></pre>
+</div>
+<div id="sample5-request-payload" class="collapsible">
+  
+</div>
+
+<div class="action response">
+  Response
+  <span>204 No Content</span>
+  <div class="expanders">
+    [
+    <a href="#sample5-response-headers">headers</a>
+    
+      / <a href="#sample5-response-body">body</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample5-response-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">x-powered-by</span>: <span class="hljs-string">Express</span>
+<span class="hljs-attribute">date</span>: <span class="hljs-string">Tue, 21 Jan 2014 01:34:45 GMT</span>
+<span class="hljs-attribute">connection</span>: <span class="hljs-string">close</span>
+</code></pre>
+</div>
+<div id="sample5-response-body" class="collapsible">
+  <pre><code>{}</code></pre>
+</div>
+
+      </li>
+    
+  </ul>
+
+</div>
+
+        
+      
+
+    </div>
+
+    <footer>
+  <div class="row">
+    <div class="medium-8 columns">
+      <ul class="no-bullet">
+        <li>
+          Documentation generated on January 21st 2014, 12:34 pm
+        </li>
+        <li>
+          <a href="http://github.com/rprieto/api-swatch">
+            Powered by api-swatch
+            <div class="logo">
+              <div class="swatch color-GET"></div>
+              <div class="swatch color-POST"></div>
+              <div class="swatch color-PUT"></div>
+              <div class="swatch color-DELETE"></div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="scripts/zepto.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+
+  </body>
+
+</html>
