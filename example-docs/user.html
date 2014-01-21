@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>API Documentation</title>
+      <link rel="stylesheet" href="css/foundation.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/styles.css" />
+      <link rel="stylesheet" type="text/css" href="css/highlight.github.css" />
+  </head>
+
+
+  <body class="antialiased hide-extras">
+
+    <div class="sidebar-top">
+  API Documentation
+</div>
+
+<div class="sidebar">
+  
+  <form>
+    <input tabindex="1" id="autocomplete" type="search"
+          placeholder="search" autocomplete="off" />
+  </form>
+
+  <nav>
+    <ul class="side-nav">
+
+      
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <a href="index.html">Intro</a>
+          </li>
+
+          
+            <li>
+              <a href="index.html#event-information" data-search="Event information">
+                Event information
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="index.html#authenticated-calls" data-search="Authenticated calls">
+                Authenticated calls
+                
+              </a>
+            </li>
+          
+
+      
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <a href="admin.html">Admin</a>
+          </li>
+
+          
+            <li>
+              <a href="admin.html#reporting" data-search="Reporting">
+                Reporting
+                
+                  <span class="label">1</span>
+                
+              </a>
+            </li>
+          
+
+      
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <a href="events.html">Events</a>
+          </li>
+
+          
+            <li>
+              <a href="events.html#competitions" data-search="Competitions">
+                Competitions
+                
+                  <span class="label">2</span>
+                
+              </a>
+            </li>
+          
+            <li>
+              <a href="events.html#sports" data-search="Sports">
+                Sports
+                
+                  <span class="label">1</span>
+                
+              </a>
+            </li>
+          
+
+      
+
+          <li class="divider"></li>
+
+          <li class="heading">
+            <a href="user.html">User</a>
+          </li>
+
+          
+            <li>
+              <a href="user.html#tickets" data-search="Tickets">
+                Tickets
+                
+                  <span class="label">2</span>
+                
+              </a>
+            </li>
+          
+
+      
+
+    </ul>
+  </nav>
+
+</div>
+
+
+    <div class="content-top"></div>
+    <div class="content">
+
+      <h1>User</h1>
+
+      
+        <div class="group">
+          <a name="tickets"></a>
+          <h2>Tickets</h2>
+          <ul class="samples">
+            
+              <li>
+                <div class="summary">
+  <p>Buying tickets</p>
+<ul>
+<li>this is an <strong>authenticated</strong> call</li>
+<li>you can purchase multiple tickets at once</li>
+<li>keep your ticket numbers somewhere safe</li>
+</ul>
+
+</div>
+
+<div class="action color-POST">
+  <div class="method">POST</div>
+  <span class="uri">/tickets</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample4-request-headers">headers</a><span>
+    
+      / <a href="#sample4-request-payload">payload</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample4-request-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
+<span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+</code></pre>
+</div>
+<div id="sample4-request-payload" class="collapsible">
+  <pre><code>{
+  "<span class="hljs-attribute">competitionId</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+  "<span class="hljs-attribute">quantity</span>": <span class="hljs-value"><span class="hljs-number">3</span>
+</span>}</code></pre>
+</div>
+
+<div class="action response">
+  Response
+  <span>201 Created</span>
+  <div class="expanders">
+    [
+    <a href="#sample4-response-headers">headers</a>
+    
+      / <a href="#sample4-response-body">body</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample4-response-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+</code></pre>
+</div>
+<div id="sample4-response-body" class="collapsible">
+  <pre><code>{
+  "<span class="hljs-attribute">eventName</span>": <span class="hljs-value"><span class="hljs-string">"Australian Open"</span></span>,
+  "<span class="hljs-attribute">tickets</span>": <span class="hljs-value">[
+    <span class="hljs-string">"ticket1"</span>,
+    <span class="hljs-string">"ticket2"</span>,
+    <span class="hljs-string">"ticket3"</span>
+  ]
+</span>}</code></pre>
+</div>
+
+              </li>
+            
+              <li>
+                <div class="summary">
+  <p>Cancelling a ticket</p>
+<ul>
+<li>this is an <strong>authenticated</strong> call</li>
+<li>your account will be re-credited with the amount</li>
+</ul>
+
+</div>
+
+<div class="action color-DELETE">
+  <div class="method">DELETE</div>
+  <span class="uri">/tickets/123</span>
+</div>
+
+<div class="action request">
+  Request
+  <div class="expanders">
+    [
+    <a href="#sample5-request-headers">headers</a><span>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample5-request-headers" class="collapsible">
+  <pre><code><span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
+<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+</code></pre>
+</div>
+<div id="sample5-request-payload" class="collapsible">
+  
+</div>
+
+<div class="action response">
+  Response
+  <span>204 No Content</span>
+  <div class="expanders">
+    [
+    <a href="#sample5-response-headers">headers</a>
+    
+      / <a href="#sample5-response-body">body</a>
+    
+    ]
+  </div>
+</div>
+
+<div id="sample5-response-headers" class="collapsible">
+  <pre><code></code></pre>
+</div>
+<div id="sample5-response-body" class="collapsible">
+  <pre><code>{}</code></pre>
+</div>
+
+              </li>
+            
+          </ul>
+        </div>
+      
+      
+    </div>
+
+    <footer>
+  <div class="row">
+    <div class="medium-8 columns">
+      <ul class="no-bullet">
+        <li>
+          Documentation generated on January 22nd 2014, 11:39 pm
+        </li>
+        <li>
+          <a href="http://github.com/rprieto/supersamples">
+            Powered by supersamples
+            <div class="logo">
+              <div class="swatch color-GET"></div>
+              <div class="swatch color-POST"></div>
+              <div class="swatch color-PUT"></div>
+              <div class="swatch color-DELETE"></div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="scripts/zepto.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+
+  </body>
+
+</html>

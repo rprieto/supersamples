@@ -1,0 +1,4 @@
+{
+  "intro": "example/intro.md",
+  "output": "example-docs"
+}

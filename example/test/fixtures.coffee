@@ -1,18 +1,16 @@
 #
 # Helper functions and test fixtures
 # These won't appear anywhere in the docs
-# Here we just just the Sinon sandbox to stub out database calls
-# We could just as well load fixtures into an actual database
-# Or stub out any back-end service calls
+#
+# Here we just stub out database calls,
+# but we could just as well load fixtures into an actual database
+# or stub out any back-end service calls
 #
 
-sinon    = require 'sinon'
 database = require '../src/database'
 
 
-# "before" methods get passed a sinon sandbox (http://sinonjs.org/docs/#sinon-sandbox)
-# you can use it to setup temporary stub in the context of a single test
-exports.fakeSports = (sandbox, done) ->
+exports.fakeSports = (sandbox) ->
   sandbox.stub database, 'getSports', -> [
     {
       id: 1,
@@ -31,11 +29,7 @@ exports.fakeSports = (sandbox, done) ->
       ]
     }
   ]
-  done()
 
-
-exports.successfulPurchase = (sandbox, done) ->
+exports.successfulPurchase = (sandbox) ->
   sandbox.stub database, 'buyTickets', (competitionId, quantity) ->
     ['ticket1', 'ticket2', 'ticket3']
-  done()
-
