@@ -3,17 +3,15 @@
 
 > Collection of samples for your REST API
 
-![logo](https://raw.github.com/rprieto/api-swatch/master/media/logo.png)
+![logo](https://raw.github.com/rprieto/api-swatch/master/logo.png)
 
-*Works with any `http.Server`, like [Express](https://github.com/visionmedia/express) or [Restify](https://github.com/mcavage/node-restify)*
+*Works with any Node.js `http.Server`, like [Express](https://github.com/visionmedia/express) or [Restify](https://github.com/mcavage/node-restify)*
 
 - define request/response examples for your API
 - run them against mocks as part of your test suite
-- generate HTML documentation from them
+- generate HTML documentation
 
-<a href="https://raw.github.com/rprieto/api-swatch/master/media/output.png">
-  <img src="https://raw.github.com/rprieto/api-swatch/master/media/output-thumbnail.png" alt="generated document example" />
-</a>
+See a live example [over here](http://rprieto.github.io/api-swatch).
 
 ## What exactly does it do?
 
@@ -27,24 +25,14 @@
       ✓ Competitions by sport
       ✓ Filter by country
 
-  Admin
-    Reporting
-      ✓ Status check
+  3 passing (26ms)
 
-  User
-    Tickets
-      ✓ Buying tickets
-      ✓ Cancelling a ticket
-
-
-  6 passing (26ms)
-
-Docs generated in example/output
+Docs generated in example-docs
 ```
 
-- `api-swatch` focusses on **concrete request/response examples**. This doesn't give a full-comprehensive output describing every parameter, but it creates high-level documentation people can understand at a glance
+- `api-swatch` focusses on **concrete request/response examples**. This doesn't give a full-comprehensive output describing every parameter, but it creates high-level documentation people can understand at a glance.
 
-- since it actually `requires()` your HTTP server, you can stub out any of its dependencies to make sure you control your test fixtures - while still exercising all the API parts that matter.
+- since it actually `requires()` your HTTP server, you can stub out any of its dependencies to make sure you control your test fixtures - while still exercising all the API parts that matter. All stubs are reset between each sample.
 
 - you can add any [Markdown](daringfireball.net/projects/markdown/) text at the start of documentation, and alongside every sample.
 
