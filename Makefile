@@ -1,11 +1,11 @@
 clean:
-	@rm -rf example/output
+	@rm -rf example-docs/**
 
-# no dependencies, just run it every time
+# run the "example" tests with the api-swatch reporter
 example:
-	@node ./bin/swatch --input example/api_tests --output example-docs
+	@node_modules/.bin/mocha --compilers coffee:coffee-script --reporter supersamples example/test
 
-# shortcut to open the example output
+# shortcut to open the generated example docs
 open:
 	open example-docs/index.html
 

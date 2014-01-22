@@ -82,6 +82,8 @@ section[role=main] {
   border-right: 1px solid #ddd;
   height: 100%;
   padding-bottom: 10em;
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: fixed;
   top: 3em;
   width: 19em;
@@ -106,7 +108,6 @@ section[role=main] {
 
 .sidebar .heading a {
   color: #333;
-  text-transform: uppercase;
 }
 
 .side-nav li {
@@ -124,6 +125,10 @@ section[role=main] {
   margin: 0 -20px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.side-nav li.heading:hover a {
+  color: #000;
 }
 
 .side-nav li.divider {
@@ -152,31 +157,17 @@ section[role=main] {
 
 .content {
   margin-left: 19em;
-  min-height: 40em;
+  min-height: 50em;
   padding: 0 3em 2em 3em;
 }
 
 .content h1 {
-  background: #fafafa;
-  border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
-  margin: 1.5em -1.1em 1em -1.1em;
-  padding: 0.2em 1em;
-}
-
-.content h1:first-of-type {
-  margin-top: 0;
-  border-top: none;
-}
-
-.content h3 {
-  color: #666;
-  font-size: 1.5em;
+  margin: 0.5em 0;
 }
 
 .content h2 {
-  font-size: 2em;
-  margin: 0.5em 0;
+  font-size: 1.9em;
+  margin: 1.5em 0 1em 0;
 }
 
 ul.samples {

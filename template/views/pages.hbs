@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  {{> head}}
+
+  <body class="antialiased hide-extras">
+
+    {{> navigation}}
+
+    <div class="content-top"></div>
+    <div class="content">
+
+      <h1>{{name}}</h1>
+
+      {{#each headings}}
+        <div class="group">
+          <a name="{{slug}}"></a>
+          <h2>{{name}}</h2>
+          <ul class="samples">
+            {{#each samples}}
+              <li>
+                {{> sample}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/each}}
+      
+    </div>
+
+    {{> footer}}
+
+    <script src="scripts/zepto.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+
+  </body>
+
+</html>

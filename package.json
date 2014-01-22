@@ -1,7 +1,7 @@
 {
-  "name": "api-swatch",
+  "name": "supersamples",
   "version": "0.0.1",
-  "description": "Executable restful API samples",
+  "description": "Collection of samples for your Node.js REST API",
   "keywords": [
     "api",
     "express",
@@ -10,32 +10,25 @@
     "testing",
     "documentation",
     "docs",
-    "mocha"
+    "mocha",
+    "reporter",
+    "supertest",
+    "superagent"
   ],
   "author": "Romain Prieto",
   "license": "BSD-2-Clause",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rprieto/api-swatch.git"
+    "url": "git://github.com/rprieto/supersamples.git"
   },
-  "main": "lib/builder.js",
+  "main": "lib/reporter.js",
   "scripts": {
     "start": "node example/index.js",
     "test": "./node_modules/.bin/mocha"
   },
-  "bin": {
-    "swatch": "./bin/swatch.js"
-  },
   "dependencies": {
-    "mocha": "~1.16.2",
     "lodash": "~2.4.1",
-    "commander": "~2.1.0",
-    "wrench": "~1.5.4",
-    "coffee-script": "~1.6.3",
-    "should": "~2.1.1",
     "handlebars": "~1.3.0",
-    "sinon": "~1.7.3",
-    "supertest": "~0.8.3",
     "http-status-codes": "~1.0.2",
     "async": "~0.2.9",
     "moment": "~2.5.0",
@@ -43,6 +36,14 @@
     "highlight.js": "~8.0.0"
   },
   "devDependencies": {
+    "mocha": "~1.16.2",
+    "sinon": "~1.7.3",
+    "should": "~2.1.1",
+    "supertest": "~0.8.3",
+    "coffee-script": "~1.6.3",
     "express": "~3.4.7"
+  },
+  "peerDependencies": {
+    "supertest": ">0.8.0"
   }
 }

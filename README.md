@@ -1,76 +1,79 @@
+> Collection of samples for your Node.js REST API
 
-# api-swatch
+![logo](https://raw.github.com/rprieto/supersamples/master/logo.png)
 
-> Collection of samples for your REST API
+`supersamples` is a [Mocha](https://github.com/visionmedia/mocha) reporter that understands [Supertest](https://github.com/visionmedia/supertest) to generate reliable and up-to-date API samples. In a nutshell:
 
-![logo](https://raw.github.com/rprieto/api-swatch/master/logo.png)
+- define concrete request/response examples in your test suite
+- if you need to, use mocks to make sure you control the API reponses
+- get high-level HTML documentation that's always up-to-date!
+
+See a live example [over here](http://rprieto.github.io/supersamples).
 
 *Works with any Node.js `http.Server`, like [Express](https://github.com/visionmedia/express) or [Restify](https://github.com/mcavage/node-restify)*
 
-- define request/response examples for your API
-- run them against mocks as part of your test suite
-- generate HTML documentation
+## So what does the code look like?
 
-See a live example [over here](http://rprieto.github.io/api-swatch).
+Nothing special! Simply use `supertest` in your test suite, and `supersamples` will generate the request/response documentation for you!
 
-## What exactly does it do?
+```coffee
+it '''
+# Get list of sports
+- list is ordered alphabetically
+- doesn't return sports with no active competitions
+''', (done) ->
 
-- It builds on top of [mocha](https://github.com/visionmedia/mocha), [supertest](https://github.com/visionmedia/supertest), and [sinon](http://sinonjs.org) to have **executable documentation**. In fact, generating the HTML documents requires running the tests, so your docs are never out of date.
-
-```bash
-  Events
-    Sports
-      ✓ Get list of sports
-    Competitions
-      ✓ Competitions by sport
-      ✓ Filter by country
-
-  3 passing (26ms)
-
-Docs generated in example-docs
+  request(server)
+    .get('/sports')
+    .set('Accept', 'application/json')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .expect(
+      sports: [
+        { id: 1, name: 'Soccer' }
+        { id: 2, name: 'Tennis' }
+      ]
+    )
+    .end(done)
 ```
 
-- `api-swatch` focusses on **concrete request/response examples**. This doesn't give a full-comprehensive output describing every parameter, but it creates high-level documentation people can understand at a glance.
+*Note:* to reduce clutter, `supersamples` will only output the reponse headers if they were asserted on.
 
-- since it actually `requires()` your HTTP server, you can stub out any of its dependencies to make sure you control your test fixtures - while still exercising all the API parts that matter. All stubs are reset between each sample.
+## How do I set it up?
 
-- you can add any [Markdown](daringfireball.net/projects/markdown/) text at the start of documentation, and alongside every sample.
+```
+npm install supersamples --save
+```
+
+Then wire up `supersamples` at the top of your spec file:
+
+```js
+var request = require('supertest');
+require('supersamples').inspect(request);
+```
+
+Finally have a look at the [example folder](http://github.com/rprieto/supersamples/blob/master/example). You can add tests to the usual `test` folder, or keep them separate if you want. Simply run Mocha with the provided reporter:
+
+```bash
+./node_modules/.bin/mocha --reporter supersamples path/to/tests
+```
+
+You can specify documentation options in a separate **supersamples.opts** file at the root:
+
+```json
+{
+  "intro": "example/intro.md",
+  "output": "example-docs"
+}
+```
 
 ## What doesn't it do?
 
-`api-swatch` DOES NOT provide a way to describe every path or query string parameter. If you want a very detailled API description, you might like other tools better:
+`supersamples` DOES NOT provide a way to describe every path or query string parameter. It's meant to give you reliable but low-cost API samples. If you want a very detailled API description, you might like other tools better:
 
 &nbsp;&nbsp;&nbsp;&nbsp;- tools like [Apiary](http://apiary.io) or [ApiDoc](http://apidocjs.com) let you document your API in text-format (for example Markdown or JavaScript comments). Just remember to keep these up to date!
 
 &nbsp;&nbsp;&nbsp;&nbsp;- tools like [Swagger](http://developers.helloreverb.com/swagger/) provide a JavaScript API to define your routes. It can generate docs that are always up-to-date, if you don't mind using their syntax instead of vanilla Express or Restify.
-
-## How do I set it up?
-
-In your project folder:
-
-```
-npm install api-swatch --save
-```
-
-Then add a new folder for your tests, for example:
-
-```
-|__ myproject
-   |__package.json
-   |__src
-   |__test
-   |__api_tests   <<<<< here
-```
-
-Have a look at the [example](http://github.com/rprieto/api-swatch/blob/master/example) to create your first test. Then run `swatch` as part of your build pipeline, so you get fresh docs every time you build your project.
-
-```bash
-# run your normal unit tests
-./node_modules/.bin/mocha
-
-# and run/generate your docs
-./node_modules/.bin/swatch --input api_tests --output output_docs --intro introduction.md
-```
 
 ## Contributing
 
@@ -82,9 +85,9 @@ To work on the project locally, simply run:
 # install dependencies
 npm install
 
-# allow the sample code to require itself
+# allow supersamples to require itself
 npm link
-npm link api-swatch
+npm link supersamples
 
 # run the unit tests
 npm test
