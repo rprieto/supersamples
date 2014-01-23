@@ -10,12 +10,14 @@
 <div class="action request">
   Request
   <div class="expanders">
-    [
-    <a href="#sample{{id}}-request-headers">headers</a><span>
-    {{#if request.data}}
-      / <a href="#sample{{id}}-request-payload">payload</a>
-    {{/if}}
-    ]
+    (
+    {{#hasKeys request.headers}}
+      <a href="#sample{{id}}-request-headers">headers</a><span>
+    {{/hasKeys}}
+    {{#hasKeys request.data}}
+      <a href="#sample{{id}}-request-payload">payload</a>
+    {{/hasKeys}}
+    )
   </div>
 </div>
 
@@ -30,12 +32,14 @@
   Response
   <span>{{httpStatus response.status}}</span>
   <div class="expanders">
-    [
-    <a href="#sample{{id}}-response-headers">headers</a>
-    {{#if response.body}}
-      / <a href="#sample{{id}}-response-body">body</a>
-    {{/if}}
-    ]
+    (
+    {{#hasKeys response.headers}}
+      <a href="#sample{{id}}-response-headers">headers</a>
+    {{/hasKeys}}
+    {{#hasKeys response.body}}
+      <a href="#sample{{id}}-response-body">body</a>
+    {{/hasKeys}}
+    )
   </div>
 </div>
 
