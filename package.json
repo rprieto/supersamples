@@ -34,7 +34,8 @@
     "moment": "~2.5.0",
     "markit": "~0.1.0",
     "highlight.js": "~8.0.0",
-    "fs-extra": "~0.8.1"
+    "fs-extra": "~0.8.1",
+    "wrench": "~1.5.6"
   },
   "devDependencies": {
     "mocha": "~1.16.2",
