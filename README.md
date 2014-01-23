@@ -49,7 +49,7 @@ Then wire up `supersamples` at the top of your spec file:
 
 ```js
 var request = require('supertest');
-require('supersamples').inspect(request);
+require('supersamples').instrument(request);
 ```
 
 Finally have a look at the [example folder](http://github.com/rprieto/supersamples/blob/master/example). You can add tests to the usual `test` folder, or keep them separate if you want. Simply run Mocha with the provided reporter:
