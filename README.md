@@ -62,8 +62,10 @@ You can specify documentation options in a separate **supersamples.opts** file a
 
 ```json
 {
-  "intro": "example/intro.md",
-  "output": "example-docs"
+  "title": "My API docs",
+  "intro": "tests/intro.md",
+  "styles": ["tests/custom.css"],
+  "output": "docs"
 }
 ```
 
