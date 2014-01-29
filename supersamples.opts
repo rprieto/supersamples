@@ -1,4 +1,6 @@
 {
+  "title": "API documentation",
   "intro": "example/intro.md",
-  "output": "example-docs"
+  "output": "example-docs",
+  "styles": []
 }

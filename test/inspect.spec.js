@@ -5,12 +5,12 @@ var inspect = require('../lib/inspect');
 
 describe('inspect', function() {
   
-  var server = http.createServer(function(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('hello world');
-  });
-
   describe('requests', function() {
+
+    var server = http.createServer(function(req, res) {
+      res.writeHead(200);
+      res.end();
+    });
 
     it('inspects the method and path', function(done) {
       request(server)
@@ -18,7 +18,7 @@ describe('inspect', function() {
       .end(function() {
         inspect.request(this).should.eql({
           data: null,
-          headers: {'accept-encoding': 'gzip, deflate'},
+          headers: {},
           method: 'GET',
           path: '/foo'
         });
@@ -34,9 +34,24 @@ describe('inspect', function() {
         inspect.request(this).should.eql({
           data: null,
           headers: {
-            'accept-encoding': 'gzip, deflate',
             'x-custom': '1234'
           },
+          method: 'GET',
+          path: '/foo'
+        });
+        done();
+      });
+    });
+
+    it('ignores headers with no value, or from the blacklist', function(done) {
+      request(server)
+      .get('/foo')
+      .set('accept-encoding', 'text/plain')
+      .set('x-custom', '')
+      .end(function() {
+        inspect.request(this).should.eql({
+          data: null,
+          headers: {},
           method: 'GET',
           path: '/foo'
         });
@@ -52,7 +67,6 @@ describe('inspect', function() {
         inspect.request(this).should.eql({
           data: {value: 1234},
           headers: {
-            'accept-encoding': 'gzip, deflate',
             'content-type': 'application/json',
             'content-length': 14
            },
@@ -66,6 +80,63 @@ describe('inspect', function() {
   });
 
   describe('responses', function() {
+
+    it('inspects the response status and body', function(done) {
+      var server = http.createServer(function(req, res) {
+        res.writeHead(200);
+        res.end('hello world');
+      });
+      request(server)
+      .get('/foo')
+      .end(function(err, res) {
+        inspect.response(this, res).should.eql({
+          status: 200,
+          headers: {},
+          body: 'hello world',
+        });
+        done();
+      });
+    });
+
+    it('can inspect JSON bodies as well', function(done) {
+      var server = http.createServer(function(req, res) {
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.end(JSON.stringify({hello: 'world'}));
+      });
+      request(server)
+      .get('/foo')
+      .end(function(err, res) {
+        inspect.response(this, res).should.eql({
+          status: 200,
+          headers: {},
+          body: {hello: 'world'},
+        });
+        done();
+      });
+    });
+
+    it('extracts headers that were asserted on', function(done) {
+      var server = http.createServer(function(req, res) {
+        res.writeHead(200, {
+          'Content-Type': 'text/plain',
+          'X-Transaction-Id': '999'
+        });
+        res.end('hello world');
+      });
+      request(server)
+      .get('/foo')
+      .expect('x-transaction-id', '999')
+      .end(function(err, res) {
+        inspect.response(this, res).should.eql({
+          status: 200,
+          headers: {
+            'x-transaction-id': '999'
+          },
+          body: 'hello world',
+        });
+        done();
+      });
+    });
 
   });
 
