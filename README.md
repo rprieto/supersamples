@@ -5,14 +5,14 @@
 `supersamples` is a [Mocha](https://github.com/visionmedia/mocha) reporter that understands [Supertest](https://github.com/visionmedia/supertest) to generate reliable and up-to-date API samples. In a nutshell:
 
 - define concrete request/response examples in your test suite
-- if you need to, use mocks to make sure you control the API reponses
+- if you need to, use mocks to make sure you fully control the API reponses
 - get high-level HTML documentation that's always up-to-date!
 
 See a live example [over here](http://rprieto.github.io/supersamples).
 
 *Works with any Node.js `http.Server`, like [Express](https://github.com/visionmedia/express) or [Restify](https://github.com/mcavage/node-restify)*
 
-## So what does the code look like?
+## So what will my tests look like?
 
 Nothing special! Simply use `supertest` in your test suite, and `supersamples` will generate the request/response documentation for you!
 
@@ -37,7 +37,23 @@ it '''
     .end(done)
 ```
 
-*Note:* to reduce clutter, `supersamples` will only output the reponse headers if they were asserted on.
+## What goes in the docs?
+
+**The navigation & markdown**
+
+- The first 2 levels of `describe()` statements make up the navigation sidebar.
+- Each section then includes the `it()` definition as a Markdown description of the example.
+
+**The request**
+
+- The request headers, including custom ones. However it excludes typically irrelevant headers for the context of documentation (`accept-encoding: gzip, deflate`, `host: http://localhost:1234`...).
+- The request payload, if present.
+
+**The response**
+
+- The response status code, regardless of any `expect()`.
+- The response headers, but only if they were mentioned in `expect()`. The reason is that many frameworks will add dozens of default headers, which could seriously clutter the docs.
+- The actualy response body, regardless of any `expect()`. Note that even if they don't affect the docs, expectations are checked during the generation process. We 100% recommend that you add some to give extra confidence that the HTTP response are correct. 
 
 ## How do I set it up?
 
@@ -52,7 +68,7 @@ var request = require('supertest');
 require('supersamples').instrument(request);
 ```
 
-Finally have a look at the [example folder](http://github.com/rprieto/supersamples/blob/master/example). You can add tests to the usual `test` folder, or keep them separate if you want. Simply run Mocha with the provided reporter:
+Finally have a look at the [example folder](http://github.com/rprieto/supersamples/blob/master/example) to get started. You can add tests to the usual `test` folder, or keep them separate if you want. Simply run Mocha with the provided reporter:
 
 ```bash
 ./node_modules/.bin/mocha --reporter supersamples path/to/tests
