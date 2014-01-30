@@ -8,7 +8,7 @@ fixtures = require './fixtures'
 
 # You only need to wire this once
 # Preferably in a "spec helper" that's required before anything else
-require('supersamples').inspect(request);
+require('supersamples').instrument(request);
 
 
 # We use a sinon sandboxes to cleanup our stubs/mocks
