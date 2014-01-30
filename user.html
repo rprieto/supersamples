@@ -4,17 +4,19 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>API Documentation</title>
+      <title>API documentation</title>
       <link rel="stylesheet" href="css/foundation.min.css" />
       <link rel="stylesheet" type="text/css" href="css/styles.css" />
       <link rel="stylesheet" type="text/css" href="css/highlight.github.css" />
+      
   </head>
 
 
   <body class="antialiased hide-extras">
 
     <div class="sidebar-top">
-  API Documentation
+  <div class="logo"></div>
+  API documentation
 </div>
 
 <div class="sidebar">
@@ -155,19 +157,21 @@
 <div class="action request">
   Request
   <div class="expanders">
-    [
-    <a href="#sample4-request-headers">headers</a><span>
+    (
     
-      / <a href="#sample4-request-payload">payload</a>
+      <a href="#sample4-request-headers">headers</a><span>
     
-    ]
+    
+      <a href="#sample4-request-payload">payload</a>
+    
+    )
   </div>
 </div>
 
 <div id="sample4-request-headers" class="collapsible">
-  <pre><code><span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
-<span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
+  <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
 <span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">content-length</span>: <span class="hljs-string">32</span>
 </code></pre>
 </div>
 <div id="sample4-request-payload" class="collapsible">
@@ -181,12 +185,14 @@
   Response
   <span>201 Created</span>
   <div class="expanders">
-    [
-    <a href="#sample4-response-headers">headers</a>
+    (
     
-      / <a href="#sample4-response-body">body</a>
+      <a href="#sample4-response-headers">headers</a>
     
-    ]
+    
+      <a href="#sample4-response-body">body</a>
+    
+    )
   </div>
 </div>
 
@@ -225,16 +231,17 @@
 <div class="action request">
   Request
   <div class="expanders">
-    [
-    <a href="#sample5-request-headers">headers</a><span>
+    (
     
-    ]
+      <a href="#sample5-request-headers">headers</a><span>
+    
+    
+    )
   </div>
 </div>
 
 <div id="sample5-request-headers" class="collapsible">
-  <pre><code><span class="hljs-attribute">accept-encoding</span>: <span class="hljs-string">gzip, deflate</span>
-<span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+  <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
 </code></pre>
 </div>
 <div id="sample5-request-payload" class="collapsible">
@@ -245,12 +252,10 @@
   Response
   <span>204 No Content</span>
   <div class="expanders">
-    [
-    <a href="#sample5-response-headers">headers</a>
+    (
     
-      / <a href="#sample5-response-body">body</a>
     
-    ]
+    )
   </div>
 </div>
 
@@ -258,7 +263,7 @@
   <pre><code></code></pre>
 </div>
 <div id="sample5-response-body" class="collapsible">
-  <pre><code>{}</code></pre>
+  
 </div>
 
               </li>
@@ -274,7 +279,7 @@
     <div class="medium-8 columns">
       <ul class="no-bullet">
         <li>
-          Documentation generated on January 22nd 2014, 11:39 pm
+          Documentation generated on January 30th 2014, 11:20 am
         </li>
         <li>
           <a href="http://github.com/rprieto/supersamples">
