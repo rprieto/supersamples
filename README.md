@@ -1,4 +1,4 @@
-> Collection of samples for your Node.js REST API
+> Documentation and samples for your Node.js RESTful API
 
 ![logo](https://raw.github.com/rprieto/supersamples/master/logo.png)
 
@@ -6,9 +6,12 @@
 
 - define concrete request/response examples in your test suite
 - if you need to, use mocks to make sure you fully control the API reponses
-- get high-level HTML documentation that's always up-to-date!
+- add a few explanations in Markdown
+- get high-level API documentation that's always up-to-date!
 
 See a live example [over here](http://rprieto.github.io/supersamples).
+
+<a href="http://rprieto.github.io/supersamples"><img src="https://raw.github.com/rprieto/supersamples/master/thumbnail.png" /></a>
 
 *Works with any Node.js `http.Server`, like [Express](https://github.com/visionmedia/express) or [Restify](https://github.com/mcavage/node-restify)*
 
