@@ -20,6 +20,7 @@
       {{#hasKeys request.data}}
         <a href="#sample{{id}}-request-payload">payload</a>
       {{/hasKeys}}
+      <a href="#sample{{id}}-request-curl">curl</a><span>
     </div>
   </div>
 
@@ -28,6 +29,9 @@
   </div>
   <div id="sample{{id}}-request-payload" class="collapsible">
     {{json request.data}}
+  </div>
+  <div id="sample{{id}}-request-curl" class="collapsible">
+    {{code snippets.curl}}
   </div>
 
   <div class="response">
