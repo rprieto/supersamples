@@ -2,50 +2,51 @@
   {{markdown summary}}
 </div>
 
-<div class="action color-{{request.method}}">
-  <div class="method">{{request.method}}</div>
-  <span class="uri">{{request.path}}</span>
-</div>
+<div class="operation">
 
-<div class="action request">
-  Request
-  <div class="expanders">
-    (
-    {{#hasKeys request.headers}}
-      <a href="#sample{{id}}-request-headers">headers</a><span>
-    {{/hasKeys}}
-    {{#hasKeys request.data}}
-      <a href="#sample{{id}}-request-payload">payload</a>
-    {{/hasKeys}}
-    )
+  <div class="method color-{{request.method}}">
+    {{httpVerb request.method}}
   </div>
-</div>
 
-<div id="sample{{id}}-request-headers" class="collapsible">
-  {{headers request.headers}}
-</div>
-<div id="sample{{id}}-request-payload" class="collapsible">
-  {{json request.data}}
-</div>
-
-<div class="action response">
-  Response
-  <span>{{httpStatus response.status}}</span>
-  <div class="expanders">
-    (
-    {{#hasKeys response.headers}}
-      <a href="#sample{{id}}-response-headers">headers</a>
-    {{/hasKeys}}
-    {{#hasKeys response.body}}
-      <a href="#sample{{id}}-response-body">body</a>
-    {{/hasKeys}}
-    )
+  <div class="request">
+    <div class="url">
+      {{request.method}} {{request.path}}
+    </div>
+    Request
+    <div class="expanders">
+      {{#hasKeys request.headers}}
+        <a href="#sample{{id}}-request-headers">headers</a><span>
+      {{/hasKeys}}
+      {{#hasKeys request.data}}
+        <a href="#sample{{id}}-request-payload">payload</a>
+      {{/hasKeys}}
+    </div>
   </div>
-</div>
 
-<div id="sample{{id}}-response-headers" class="collapsible">
-  {{headers response.headers}}
-</div>
-<div id="sample{{id}}-response-body" class="collapsible">
-  {{json response.body}}
+  <div id="sample{{id}}-request-headers" class="collapsible">
+    {{headers request.headers}}
+  </div>
+  <div id="sample{{id}}-request-payload" class="collapsible">
+    {{json request.data}}
+  </div>
+
+  <div class="response">
+    Response {{httpStatus response.status}}
+    <div class="expanders">
+      {{#hasKeys response.headers}}
+        <a href="#sample{{id}}-response-headers">headers</a>
+      {{/hasKeys}}
+      {{#hasKeys response.body}}
+        <a href="#sample{{id}}-response-body">body</a>
+      {{/hasKeys}}
+    </div>
+  </div>
+
+  <div id="sample{{id}}-response-headers" class="collapsible">
+    {{headers response.headers}}
+  </div>
+  <div id="sample{{id}}-response-body" class="collapsible">
+    {{json response.body}}
+  </div>
+
 </div>
