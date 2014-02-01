@@ -203,7 +203,7 @@ ul.samples {
   display: inline-block;
   float: right;
   left: 1.7em;
-  opacity: 0.5;
+  opacity: 0.8;
   padding: 0.2em 2em;
   position: relative;
   top: 0.4em;
@@ -256,6 +256,7 @@ code {
  
 pre code {
   background: #fff;
+  border: 1px solid #ddd;
   color: #333333;
   display: block;
   overflow-x: scroll;
@@ -273,7 +274,6 @@ pre code .code-container {
   line-height: 1.3rem;
   font-weight: normal;
 }
- 
 
 footer {
   background: #333333;
