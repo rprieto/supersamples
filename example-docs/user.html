@@ -149,59 +149,62 @@
 
 </div>
 
-<div class="action color-POST">
-  <div class="method">POST</div>
-  <span class="uri">/tickets</span>
-</div>
+<div class="operation">
 
-<div class="action request">
-  Request
-  <div class="expanders">
-    (
-    
-      <a href="#sample4-request-headers">headers</a><span>
-    
-    
-      <a href="#sample4-request-payload">payload</a>
-    
-    )
+  <div class="method color-POST">
+    POST
   </div>
-</div>
 
-<div id="sample4-request-headers" class="collapsible">
-  <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
+  <div class="request">
+    <div class="url">
+      POST /tickets
+    </div>
+    Request
+    <div class="expanders">
+      
+        <a href="#sample4-request-headers">headers</a><span>
+      
+      
+        <a href="#sample4-request-payload">payload</a>
+      
+      <a href="#sample4-request-curl">curl</a><span>
+    </div>
+  </div>
+
+  <div id="sample4-request-headers" class="collapsible">
+    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
 <span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
 <span class="hljs-attribute">content-length</span>: <span class="hljs-string">32</span>
 </code></pre>
-</div>
-<div id="sample4-request-payload" class="collapsible">
-  <pre><code>{
+  </div>
+  <div id="sample4-request-payload" class="collapsible">
+    <pre><code>{
   "<span class="hljs-attribute">competitionId</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
   "<span class="hljs-attribute">quantity</span>": <span class="hljs-value"><span class="hljs-number">3</span>
 </span>}</code></pre>
-</div>
-
-<div class="action response">
-  Response
-  <span>201 Created</span>
-  <div class="expanders">
-    (
-    
-      <a href="#sample4-response-headers">headers</a>
-    
-    
-      <a href="#sample4-response-body">body</a>
-    
-    )
   </div>
-</div>
+  <div id="sample4-request-curl" class="collapsible">
+    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> POST <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-type: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-length: 32"</span> <span class="hljs-attribute">-d</span> <span class="hljs-string">'{"competitionId":4,"quantity":3}'</span> <span class="hljs-string">"http://localhost/tickets"</span></code></pre>
+  </div>
 
-<div id="sample4-response-headers" class="collapsible">
-  <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+  <div class="response">
+    Response 201 Created
+    <div class="expanders">
+      
+        <a href="#sample4-response-headers">headers</a>
+      
+      
+        <a href="#sample4-response-body">body</a>
+      
+    </div>
+  </div>
+
+  <div id="sample4-response-headers" class="collapsible">
+    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
 </code></pre>
-</div>
-<div id="sample4-response-body" class="collapsible">
-  <pre><code>{
+  </div>
+  <div id="sample4-response-body" class="collapsible">
+    <pre><code>{
   "<span class="hljs-attribute">eventName</span>": <span class="hljs-value"><span class="hljs-string">"Australian Open"</span></span>,
   "<span class="hljs-attribute">tickets</span>": <span class="hljs-value">[
     <span class="hljs-string">"ticket1"</span>,
@@ -209,6 +212,8 @@
     <span class="hljs-string">"ticket3"</span>
   ]
 </span>}</code></pre>
+  </div>
+
 </div>
 
               </li>
@@ -223,47 +228,52 @@
 
 </div>
 
-<div class="action color-DELETE">
-  <div class="method">DELETE</div>
-  <span class="uri">/tickets/123</span>
-</div>
+<div class="operation">
 
-<div class="action request">
-  Request
-  <div class="expanders">
-    (
-    
-      <a href="#sample5-request-headers">headers</a><span>
-    
-    
-    )
+  <div class="method color-DELETE">
+    DEL
   </div>
-</div>
 
-<div id="sample5-request-headers" class="collapsible">
-  <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+  <div class="request">
+    <div class="url">
+      DELETE /tickets/123
+    </div>
+    Request
+    <div class="expanders">
+      
+        <a href="#sample5-request-headers">headers</a><span>
+      
+      
+      <a href="#sample5-request-curl">curl</a><span>
+    </div>
+  </div>
+
+  <div id="sample5-request-headers" class="collapsible">
+    <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
 </code></pre>
-</div>
-<div id="sample5-request-payload" class="collapsible">
-  
-</div>
-
-<div class="action response">
-  Response
-  <span>204 No Content</span>
-  <div class="expanders">
-    (
-    
-    
-    )
   </div>
-</div>
+  <div id="sample5-request-payload" class="collapsible">
+    
+  </div>
+  <div id="sample5-request-curl" class="collapsible">
+    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> DELETE <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-string">"http://localhost/tickets/123"</span></code></pre>
+  </div>
 
-<div id="sample5-response-headers" class="collapsible">
-  <pre><code></code></pre>
-</div>
-<div id="sample5-response-body" class="collapsible">
-  
+  <div class="response">
+    Response 204 No Content
+    <div class="expanders">
+      
+      
+    </div>
+  </div>
+
+  <div id="sample5-response-headers" class="collapsible">
+    <pre><code></code></pre>
+  </div>
+  <div id="sample5-response-body" class="collapsible">
+    
+  </div>
+
 </div>
 
               </li>
@@ -279,7 +289,7 @@
     <div class="medium-8 columns">
       <ul class="no-bullet">
         <li>
-          Documentation generated on January 30th 2014, 11:20 am
+          Documentation generated on February 1st 2014, 4:37 pm
         </li>
         <li>
           <a href="http://github.com/rprieto/supersamples">
