@@ -110,6 +110,9 @@ npm link supersamples
 # run the unit tests
 npm test
 
-# build the sample docs
-make clean example
+# build the example
+make clean example-docs
+
+# deploy the example docs to Github pages
+make deploy
 ```
