@@ -262,6 +262,10 @@ pre code {
   padding: 1em;
 }
  
+pre code.wrap {
+  white-space: normal;
+}
+
 pre code .code-container {
   margin: 10px 0px;
   padding: 5px;
