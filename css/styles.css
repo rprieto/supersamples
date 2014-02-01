@@ -192,38 +192,40 @@ ul.samples {
   margin: 0;
 }
 
-.action {
+.operation {
+  background: rgb(250, 250, 250);
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+.operation .method {
+  color: #fff;
+  display: inline-block;
+  float: right;
+  left: 1.7em;
+  opacity: 0.5;
+  padding: 0.2em 2em;
+  position: relative;
+  top: 0.4em;
+  -webkit-transform: rotate(45deg);
+}
+
+.operation .request,
+.operation .response {
+  background: #fafafa;
   color: #666;
   font-family: monospace;
   font-size: 1em;
-  padding: 0.6em;
-}
-
-.action .method {
-  background: #fff;
-  border-radius: 1em;
-  color: #333;
-  display: block;
-  float: left;
-  margin: 0 0.5em;
-  padding: 0.2em 0.8em;
-}
-
-.action .uri {
-  border-left: none;
-  color: #fff;
-  display: inline-block;
-  padding: 0.2em 0.5em;
-}
-
-.action.request {
-  background: #fafafa;
   padding: 1em;
 }
 
-.action.response {
-  background: #fafafa;
-  padding: 0 1em 1em 1em;
+.operation .request .url {
+  margin-bottom: 1em;
+  word-break: break-all;
+}
+
+.operation .response {
+  padding-top: 0;
 }
 
 .expanders {
@@ -240,6 +242,11 @@ ul.samples {
   border-top: none;
 }
 
+.samples .url pre {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
 code {
   color: #bd240d;
   font-family: Consolas, 'Liberation Mono', Courier, monospace;
@@ -248,12 +255,17 @@ code {
 }
  
 pre code {
-  display: block;
-  padding: 1em;
   background: #fff;
   color: #333333;
+  display: block;
+  overflow-x: scroll;
+  padding: 1em;
 }
  
+pre code.wrap {
+  white-space: normal;
+}
+
 pre code .code-container {
   margin: 10px 0px;
   padding: 5px;
