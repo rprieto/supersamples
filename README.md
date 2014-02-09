@@ -64,14 +64,7 @@ it '''
 npm install supersamples --save
 ```
 
-Then wire up `supersamples` at the top of your spec file:
-
-```js
-var request = require('supertest');
-require('supersamples').instrument(request);
-```
-
-Finally have a look at the [example folder](http://github.com/rprieto/supersamples/blob/master/example) to get started. You can add tests to the usual `test` folder, or keep them separate if you want. Simply run Mocha with the provided reporter:
+Have a look at the [example folder](http://github.com/rprieto/supersamples/blob/master/example) to get started. You can add tests to the usual `test` folder, or keep them separate if you want. Simply run Mocha with the provided reporter:
 
 ```bash
 ./node_modules/.bin/mocha --reporter supersamples path/to/tests

@@ -1,9 +1,9 @@
 var http    = require('http');
 var should  = require('should');
 var request = require('supertest');
-var inspect = require('../lib/inspect');
+var instrument = require('../../lib/instruments/supertest');
 
-describe('inspect', function() {
+describe('instruments / supertest', function() {
   
   describe('requests', function() {
 
@@ -16,7 +16,7 @@ describe('inspect', function() {
       request(server)
       .get('/foo')
       .end(function() {
-        inspect.request(this).should.eql({
+        instrument.request(this).should.eql({
           data: null,
           headers: {},
           method: 'GET',
@@ -31,7 +31,7 @@ describe('inspect', function() {
       .get('/foo')
       .set('x-custom', '1234')
       .end(function() {
-        inspect.request(this).should.eql({
+        instrument.request(this).should.eql({
           data: null,
           headers: {
             'x-custom': '1234'
@@ -49,7 +49,7 @@ describe('inspect', function() {
       .set('accept-encoding', 'text/plain')
       .set('x-custom', '')
       .end(function() {
-        inspect.request(this).should.eql({
+        instrument.request(this).should.eql({
           data: null,
           headers: {},
           method: 'GET',
@@ -64,7 +64,7 @@ describe('inspect', function() {
       .post('/foo')
       .send({value: 1234})
       .end(function() {
-        inspect.request(this).should.eql({
+        instrument.request(this).should.eql({
           data: {value: 1234},
           headers: {
             'content-type': 'application/json',
@@ -89,7 +89,7 @@ describe('inspect', function() {
       request(server)
       .get('/foo')
       .end(function(err, res) {
-        inspect.response(this, res).should.eql({
+        instrument.response(this, res).should.eql({
           status: 200,
           headers: {},
           body: 'hello world',
@@ -106,7 +106,7 @@ describe('inspect', function() {
       request(server)
       .get('/foo')
       .end(function(err, res) {
-        inspect.response(this, res).should.eql({
+        instrument.response(this, res).should.eql({
           status: 200,
           headers: {},
           body: {hello: 'world'},
@@ -127,7 +127,7 @@ describe('inspect', function() {
       .get('/foo')
       .expect('x-transaction-id', '999')
       .end(function(err, res) {
-        inspect.response(this, res).should.eql({
+        instrument.response(this, res).should.eql({
           status: 200,
           headers: {
             'x-transaction-id': '999'

@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git://github.com/rprieto/supersamples.git"
   },
-  "main": "lib/reporter.js",
+  "main": "index.js",
   "scripts": {
     "start": "node example/index.js",
     "test": "./node_modules/.bin/mocha"
