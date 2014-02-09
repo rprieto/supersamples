@@ -1,6 +1,7 @@
 {
   "title": "API documentation",
   "intro": "example/intro.md",
+  "baseUrl": "http://localhost",
   "output": "example-docs",
   "styles": []
 }

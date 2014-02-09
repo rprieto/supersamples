@@ -76,6 +76,7 @@ You can specify documentation options in a separate **supersamples.opts** file a
 {
   "title": "My API docs",
   "intro": "tests/intro.md",
+  "baseUrl": "my-api.com",
   "styles": ["tests/custom.css"],
   "output": "docs"
 }

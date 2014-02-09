@@ -1,7 +1,19 @@
 var should  = require('should');
-var curl = require('../lib/curl');
+var sinon   = require('sinon');
+var curl    = require('../lib/curl');
+var options = require('../lib/options');
 
 describe('curl', function() {
+
+  before(function() {
+    sinon.stub(options, 'get').returns({
+      baseUrl: 'http://localhost'
+    });
+  });
+
+  after(function() {
+    options.get.restore();
+  });
 
   describe('GET', function() {
 
