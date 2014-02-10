@@ -1,0 +1,10 @@
+.sidebar-top .logo {
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 25px;
+  left: 9px;
+  position: absolute;
+  top: 9px;
+  width: 25px;
+}

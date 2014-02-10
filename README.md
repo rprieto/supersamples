@@ -72,13 +72,41 @@ Have a look at the [example folder](http://github.com/rprieto/supersamples/blob/
 
 You can specify documentation options in a separate **supersamples.opts** file at the root. This file has to be valid `JSON`, but also supports comments:
 
-```json
+```js
 {
+  
+  // Documentation page title
+
   "title": "My API docs",
+
+  // Optional Markdown document used at the top of the docs
+  // Heading levels 1 and 2 are appended to the navigation
+
   "intro": "tests/intro.md",
-  "baseUrl": "my-api.com",
-  "styles": ["tests/custom.css"],
-  "output": "docs"
+
+  // Base URL used in the CURL examples
+
+  "baseUrl": "http://my-api.com",
+
+  // Output folder
+
+  "output": "docs",
+
+  // Extra files to be copied into the output folder (css, logos, htaccess...)
+  // <key> is a glob pattern to a list of files
+  // <value> is the target folder inside of the configured output
+
+  "files": {
+    "tests/extra/**": "."
+  },
+
+  // Paths to custom CSS files, to override the default styles
+  // These must have been copied as part of "files"
+
+  "styles": [
+    "custom.css"
+  ]
+
 }
 ```
 

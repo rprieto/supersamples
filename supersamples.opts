@@ -17,10 +17,19 @@
 
   "output": "example-docs",
 
+  // Extra files to be copied into the output folder (css, logos, htaccess...)
+  // <key> is a glob pattern to a list of files
+  // <value> is the target folder inside of the configured output
+
+  "files": {
+    "example/files/**": "."
+  },
+
   // Paths to custom CSS files, relative to the output folder
   // These must have been copied as part of "files"
 
   "styles": [
+    "custom.css"
   ]
 
 }
