@@ -301,9 +301,6 @@ footer a:hover {
 
 .logo {
   display: inline-block;
-  margin-left: 0.5em;
-  position: relative;
-  top: 2px;
 }
 
 .logo .swatch {

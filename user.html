@@ -9,6 +9,8 @@
       <link rel="stylesheet" type="text/css" href="css/styles.css" />
       <link rel="stylesheet" type="text/css" href="css/highlight.github.css" />
       
+        <link rel="stylesheet" type="text/css" href="custom.css" />
+      
   </head>
 
 
@@ -184,7 +186,7 @@
 </span>}</code></pre>
   </div>
   <div id="sample4-request-curl" class="collapsible">
-    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> POST <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-type: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-length: 32"</span> <span class="hljs-attribute">-d</span> <span class="hljs-string">'{"competitionId":4,"quantity":3}'</span> <span class="hljs-string">"http://localhost/tickets"</span></code></pre>
+    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> POST <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-type: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-length: 32"</span> <span class="hljs-attribute">-d</span> <span class="hljs-string">'{"competitionId":4,"quantity":3}'</span> <span class="hljs-string">"http://my-api.com/tickets"</span></code></pre>
   </div>
 
   <div class="response">
@@ -256,7 +258,7 @@
     
   </div>
   <div id="sample5-request-curl" class="collapsible">
-    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> DELETE <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-string">"http://localhost/tickets/123"</span></code></pre>
+    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> DELETE <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-string">"http://my-api.com/tickets/123"</span></code></pre>
   </div>
 
   <div class="response">
@@ -289,7 +291,7 @@
     <div class="medium-8 columns">
       <ul class="no-bullet">
         <li>
-          Documentation generated on February 1st 2014, 5:21 pm
+          Documentation generated on February 10th 2014, 5:29 pm
         </li>
         <li>
           <a href="http://github.com/rprieto/supersamples">
