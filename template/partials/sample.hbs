@@ -10,10 +10,14 @@
 
   <div class="request">
     <div class="url">
-      {{request.method}} {{request.path}}
+      {{request.method}}
+      {{or route.tokenisedRoute request.path}}
     </div>
     Request
     <div class="expanders">
+      {{#if route.tokenisedRoute}}
+        <a href="#sample{{id}}-url">url</a><span>
+      {{/if}}
       {{#hasKeys request.headers}}
         <a href="#sample{{id}}-request-headers">headers</a><span>
       {{/hasKeys}}
@@ -24,6 +28,9 @@
     </div>
   </div>
 
+  <div id="sample{{id}}-url" class="collapsible">
+    {{code request.path}}
+  </div>
   <div id="sample{{id}}-request-headers" class="collapsible">
     {{headers request.headers}}
   </div>

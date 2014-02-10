@@ -43,9 +43,11 @@
     "should": "~2.1.1",
     "supertest": "~0.8.3",
     "coffee-script": "~1.6.3",
-    "express": "~3.4.7"
+    "express": "~3.4.7",
+    "restify": "~2.6.1"
   },
   "peerDependencies": {
-    "supertest": ">0.8.0"
+    "supertest": ">0.8.0",
+    "restify": ">2.6.0"
   }
 }
