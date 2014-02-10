@@ -1,9 +1,9 @@
-var express = require('express');
+var restify = require('restify');
 var controller = require('./controller');
 
-var server = express();
-server.use(express.json());
-server.use(express.urlencoded());
+var server = restify.createServer();
+server.use(restify.bodyParser({"mapParams": false}))
+server.use(restify.queryParser({"mapParams": false}))
 
 //
 // Our main 3 routes
