@@ -1,7 +1,26 @@
 {
+
+  // Documentation page title
+
   "title": "API documentation",
+
+  // Optional Markdown document used at the top of the docs
+  // Heading levels 1 and 2 are appended to the navigation
+
   "intro": "example/intro.md",
-  "baseUrl": "http://localhost",
+
+  // Base URL used in the CURL examples
+
+  "baseUrl": "http://my-api.com",
+
+  // Output folder
+
   "output": "example-docs",
-  "styles": []
+
+  // Paths to custom CSS files, relative to the output folder
+  // These must have been copied as part of "files"
+
+  "styles": [
+  ]
+
 }

@@ -70,7 +70,7 @@ Have a look at the [example folder](http://github.com/rprieto/supersamples/blob/
 ./node_modules/.bin/mocha --reporter supersamples path/to/tests
 ```
 
-You can specify documentation options in a separate **supersamples.opts** file at the root:
+You can specify documentation options in a separate **supersamples.opts** file at the root. This file has to be valid `JSON`, but also supports comments:
 
 ```json
 {
