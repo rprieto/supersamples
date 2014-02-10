@@ -1,6 +1,10 @@
-> Documentation and samples for your Node.js RESTful API
-
 ![logo](https://raw.github.com/rprieto/supersamples/master/logo.png)
+
+Documentation and samples for your Node.js RESTful API
+
+[![NPM version](https://badge.fury.io/js/supersamples.png)](http://badge.fury.io/js/supersamples)
+[![Build Status](https://travis-ci.org/rprieto/supersamples.png?branch=master)](https://travis-ci.org/rprieto/supersamples)
+
 
 `supersamples` is a [Mocha](https://github.com/visionmedia/mocha) reporter that understands [Supertest](https://github.com/visionmedia/supertest) to generate reliable and up-to-date API samples. In a nutshell:
 
