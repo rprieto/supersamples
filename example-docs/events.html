@@ -158,10 +158,14 @@
 
   <div class="request">
     <div class="url">
-      GET /sports/1/competitions
+      GET
+      /sports/:id/competitions
     </div>
     Request
     <div class="expanders">
+      
+        <a href="#sample1-url">url</a><span>
+      
       
         <a href="#sample1-request-headers">headers</a><span>
       
@@ -170,6 +174,9 @@
     </div>
   </div>
 
+  <div id="sample1-url" class="collapsible">
+    <pre><code class="wrap">/sports/1/competitions</code></pre>
+  </div>
   <div id="sample1-request-headers" class="collapsible">
     <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
 </code></pre>
@@ -194,7 +201,7 @@
   </div>
 
   <div id="sample1-response-headers" class="collapsible">
-    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
 </code></pre>
   </div>
   <div id="sample1-response-body" class="collapsible">
@@ -236,10 +243,14 @@
 
   <div class="request">
     <div class="url">
-      GET /sports/1/competitions?country=fr
+      GET
+      /sports/:id/competitions?country=$country
     </div>
     Request
     <div class="expanders">
+      
+        <a href="#sample2-url">url</a><span>
+      
       
         <a href="#sample2-request-headers">headers</a><span>
       
@@ -248,6 +259,9 @@
     </div>
   </div>
 
+  <div id="sample2-url" class="collapsible">
+    <pre><code class="wrap"><span class="hljs-attribute">/sports/1/competitions?country</span>=<span class="hljs-string">fr</span></code></pre>
+  </div>
   <div id="sample2-request-headers" class="collapsible">
     <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
 </code></pre>
@@ -272,7 +286,7 @@
   </div>
 
   <div id="sample2-response-headers" class="collapsible">
-    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
 </code></pre>
   </div>
   <div id="sample2-response-body" class="collapsible">
@@ -317,10 +331,14 @@
 
   <div class="request">
     <div class="url">
-      GET /sports
+      GET
+      /sports
     </div>
     Request
     <div class="expanders">
+      
+        <a href="#sample0-url">url</a><span>
+      
       
         <a href="#sample0-request-headers">headers</a><span>
       
@@ -329,6 +347,9 @@
     </div>
   </div>
 
+  <div id="sample0-url" class="collapsible">
+    <pre><code class="wrap">/sports</code></pre>
+  </div>
   <div id="sample0-request-headers" class="collapsible">
     <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
 </code></pre>
@@ -353,7 +374,7 @@
   </div>
 
   <div id="sample0-response-headers" class="collapsible">
-    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json; charset=utf-8</span>
+    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
 </code></pre>
   </div>
   <div id="sample0-response-body" class="collapsible">
@@ -386,7 +407,7 @@
     <div class="medium-8 columns">
       <ul class="no-bullet">
         <li>
-          Documentation generated on February 10th 2014, 5:29 pm
+          Documentation generated on February 10th 2014, 5:32 pm
         </li>
         <li>
           <a href="http://github.com/rprieto/supersamples">
