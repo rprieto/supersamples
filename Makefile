@@ -2,7 +2,7 @@ clean:
 	@rm -rf example-docs
 
 # run the "example" tests with the api-swatch reporter
-example-docs: example lib
+example-docs: example lib supersamples.opts
 	@node_modules/.bin/mocha --compilers coffee:coffee-script --reporter supersamples example/test
 
 # shortcut to open the generated example docs
