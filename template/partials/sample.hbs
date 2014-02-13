@@ -11,9 +11,13 @@
   <div class="request">
     <div class="url">
       {{request.method}}
-      {{or route.tokenisedRoute request.path}}
+      {{#if route.tokenisedRoute}}
+        {{code-tokens route.tokenisedRoute}}
+      {{else}}
+        {{code request.path}}
+      {{/if}}
     </div>
-    Request
+    Sample request
     <div class="expanders">
       {{#if route.tokenisedRoute}}
         <a href="#sample{{id}}-url">url</a><span>
@@ -32,13 +36,13 @@
     {{code request.path}}
   </div>
   <div id="sample{{id}}-request-headers" class="collapsible">
-    {{headers request.headers}}
+    {{code-headers request.headers}}
   </div>
   <div id="sample{{id}}-request-payload" class="collapsible">
-    {{json request.data}}
+    {{code-json request.data}}
   </div>
   <div id="sample{{id}}-request-curl" class="collapsible">
-    {{code snippets.curl}}
+    {{code-auto snippets.curl}}
   </div>
 
   <div class="response">
@@ -54,10 +58,10 @@
   </div>
 
   <div id="sample{{id}}-response-headers" class="collapsible">
-    {{headers response.headers}}
+    {{code-headers response.headers}}
   </div>
   <div id="sample{{id}}-response-body" class="collapsible">
-    {{json response.body}}
+    {{code-json response.body}}
   </div>
 
 </div>
