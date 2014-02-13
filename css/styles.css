@@ -245,10 +245,11 @@ ul.samples {
 .samples .url pre {
   white-space: normal;
   word-wrap: break-word;
+  border: none;
+  margin-top: 0.5em;
 }
 
 code {
-  color: #bd240d;
   font-family: Consolas, 'Liberation Mono', Courier, monospace;
   font-size: 0.75em;
   font-weight: normal;
