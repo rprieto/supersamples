@@ -17,8 +17,6 @@ describe('instruments / supertest', function() {
       .get('/foo')
       .end(function() {
         instrument.request(this).should.eql({
-          data: null,
-          binary: false,
           headers: {},
           method: 'GET',
           path: '/foo'
@@ -33,8 +31,6 @@ describe('instruments / supertest', function() {
       .set('x-custom', '1234')
       .end(function() {
         instrument.request(this).should.eql({
-          data: null,
-          binary: false,
           headers: {
             'x-custom': '1234'
           },
@@ -52,8 +48,6 @@ describe('instruments / supertest', function() {
       .set('x-custom', '')
       .end(function() {
         instrument.request(this).should.eql({
-          data: null,
-          binary: false,
           headers: {},
           method: 'GET',
           path: '/foo'
@@ -69,26 +63,10 @@ describe('instruments / supertest', function() {
       .end(function() {
         instrument.request(this).should.eql({
           data: {value: 1234},
-          binary: false,
           headers: {
             'content-type': 'application/json',
             'content-length': 14
            },
-          method: 'POST',
-          path: '/foo'
-        });
-        done();
-      });
-    });
-
-    it('inspects binary payloads', function(done) {
-      req = request(server).post('/foo')
-      req.write(new Buffer([0x01, 0x02, 0x03, 0x04]))
-      req.end(function() {
-        instrument.request(this).should.eql({
-          data: null,
-          binary: true,
-          headers: {},
           method: 'POST',
           path: '/foo'
         });
