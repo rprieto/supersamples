@@ -41,16 +41,27 @@ describe('curl', function() {
 
   describe('POST', function() {
 
-    it('with a payload', function() {
+    it('with a JSON payload', function() {
       var cmd = curl.fromRequest({
         method: 'POST',
         path: '/foo',
         data: {
           hello: 'world',
           value: 123,
-        }
+        },
+        binary: false
       });
       cmd.should.eql('curl -X POST -d \'{"hello":"world","value":123}\' "http://localhost/foo"');
+    });
+
+    it('with a binary payload', function() {
+      var cmd = curl.fromRequest({
+        method: 'POST',
+        path: '/foo',
+        data: null,
+        binary: true
+      });
+      cmd.should.eql('cat binary_file | curl -X POST --data-binary @- "http://localhost/foo"');
     });
 
   });
