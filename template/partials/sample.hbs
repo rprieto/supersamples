@@ -25,9 +25,12 @@
       {{#hasKeys request.headers}}
         <a href="#sample{{id}}-request-headers">headers</a><span>
       {{/hasKeys}}
-      {{#hasKeys request.data}}
+      {{#if request.data}}
         <a href="#sample{{id}}-request-payload">payload</a>
-      {{/hasKeys}}
+      {{/if}}
+      {{#if request.binary}}
+        <a href="#sample{{id}}-request-payload">payload</a>
+      {{/if}}
       <a href="#sample{{id}}-request-curl">curl</a><span>
     </div>
   </div>
@@ -39,7 +42,11 @@
     {{code-headers request.headers}}
   </div>
   <div id="sample{{id}}-request-payload" class="collapsible">
-    {{code-json request.data}}
+    {{#if request.binary}}
+      <pre><code>binary data</code></pre>
+    {{else}}
+      {{code-json request.data}}
+    {{/if}}
   </div>
   <div id="sample{{id}}-request-curl" class="collapsible">
     {{code-auto snippets.curl}}
