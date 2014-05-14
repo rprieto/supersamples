@@ -28,8 +28,8 @@
       {{#if request.data}}
         <a href="#sample{{id}}-request-payload">payload</a>
       {{/if}}
-      {{#if request.binary}}
-        <a href="#sample{{id}}-request-payload">payload</a>
+      {{#if request.files}}
+        <a href="#sample{{id}}-request-attachments">attachments</a>
       {{/if}}
       <a href="#sample{{id}}-request-curl">curl</a><span>
     </div>
@@ -43,10 +43,19 @@
   </div>
   <div id="sample{{id}}-request-payload" class="collapsible">
     {{#if request.binary}}
-      <pre><code>binary data</code></pre>
+      <pre><code>{{request.data}}</code></pre>
     {{else}}
       {{code-json request.data}}
     {{/if}}
+  </div>
+  <div id="sample{{id}}-request-attachments" class="collapsible">
+    {{#each request.files}}
+      <pre><code class="wrap">
+        <span class="attachment">{{name}}</span>
+        <br /><br />
+        {{content}}
+      </code></pre>
+    {{/each}}
   </div>
   <div id="sample{{id}}-request-curl" class="collapsible">
     {{code-auto snippets.curl}}
