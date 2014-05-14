@@ -1,6 +1,6 @@
 {
   "name": "supersamples",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Collection of samples for your Node.js REST API",
   "keywords": [
     "api",
