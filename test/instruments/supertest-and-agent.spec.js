@@ -1,22 +1,26 @@
 var http    = require('http');
 var should  = require('should');
 var request = require('supertest');
-var instrument = require('../../lib/instruments/supertest');
+var capture = require('../../lib/capture');
 
-describe('instruments / supertest', function() {
+describe('instrument supertest / superagent', function() {
 
-  describe('requests', function() {
+  describe('request', function() {
 
     var server = http.createServer(function(req, res) {
       res.writeHead(200);
       res.end();
     });
 
+    beforeEach(function() {
+      capture.reset();
+    });
+
     it('inspects the method and path', function(done) {
       request(server)
       .get('/foo')
       .end(function() {
-        instrument.request(this).should.eql({
+        capture.get().request.should.eql({
           headers: {},
           method: 'GET',
           path: '/foo'
@@ -30,7 +34,7 @@ describe('instruments / supertest', function() {
       .get('/foo')
       .set('x-custom', '1234')
       .end(function() {
-        instrument.request(this).should.eql({
+        capture.get().request.should.eql({
           headers: {
             'x-custom': '1234'
           },
@@ -47,7 +51,7 @@ describe('instruments / supertest', function() {
       .set('accept-encoding', 'text/plain')
       .set('x-custom', '')
       .end(function() {
-        instrument.request(this).should.eql({
+        capture.get().request.should.eql({
           headers: {},
           method: 'GET',
           path: '/foo'
@@ -61,8 +65,10 @@ describe('instruments / supertest', function() {
       .post('/foo')
       .send({value: 1234})
       .end(function() {
-        instrument.request(this).should.eql({
-          data: {value: 1234},
+        capture.get().request.should.eql({
+          data: {
+            value: 1234
+          },
           headers: {
             'content-type': 'application/json',
             'content-length': 14
@@ -74,9 +80,24 @@ describe('instruments / supertest', function() {
       });
     });
 
+    it('inspects binary payloads', function(done) {
+      req = request(server).post('/foo')
+      req.write(new Buffer([0x01, 0x02, 0x03, 0x04]))
+      req.end(function() {
+        capture.get().request.should.eql({
+          data: '\u0001\u0002\u0003\u0004',
+          binary: true,
+          headers: {},
+          method: 'POST',
+          path: '/foo'
+        });
+        done();
+      });
+    });
+
   });
 
-  describe('responses', function() {
+  describe('response', function() {
 
     it('inspects the response status and body', function(done) {
       var server = http.createServer(function(req, res) {
@@ -86,7 +107,7 @@ describe('instruments / supertest', function() {
       request(server)
       .get('/foo')
       .end(function(err, res) {
-        instrument.response(this, res).should.eql({
+        capture.get().response.should.eql({
           status: 200,
           headers: {},
           body: 'hello world',
@@ -103,7 +124,7 @@ describe('instruments / supertest', function() {
       request(server)
       .get('/foo')
       .end(function(err, res) {
-        instrument.response(this, res).should.eql({
+        capture.get().response.should.eql({
           status: 200,
           headers: {},
           body: {hello: 'world'},
@@ -124,7 +145,7 @@ describe('instruments / supertest', function() {
       .get('/foo')
       .expect('x-transaction-id', '999')
       .end(function(err, res) {
-        instrument.response(this, res).should.eql({
+        capture.get().response.should.eql({
           status: 200,
           headers: {
             'x-transaction-id': '999'
