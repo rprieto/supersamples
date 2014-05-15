@@ -1,0 +1,8 @@
+example
+example-docs
+.gitignore
+.npmignore
+.travis.yml
+Makefile
+logo.png
+thumbnail.jpg
