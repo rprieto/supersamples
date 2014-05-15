@@ -9,7 +9,7 @@ Documentation and samples for your Node.js RESTful API
 `supersamples` is a [Mocha](https://github.com/visionmedia/mocha) reporter that understands [Supertest](https://github.com/visionmedia/supertest) to generate reliable and up-to-date API samples. In a nutshell:
 
 - define concrete request/response examples in your test suite
-- if you need to, use mocks to make sure you fully control the API reponses
+- if you need to, use mocks to make sure you fully control the API responses
 - add a few explanations in Markdown
 - choose from a few output formats
 - get high-level API documentation that's always up-to-date!
@@ -108,24 +108,20 @@ You can specify documentation options in a separate **supersamples.opts** file a
     
       // Optional Markdown document used at the top of the docs
       // Heading levels 1 and 2 are appended to the navigation
-    
       "intro": "tests/intro.md",
     
       // Base URL used in the CURL examples
-    
       "baseUrl": "http://my-api.com",
     
       // Extra files to be copied into the output folder (css, logos, htaccess...)
       // <key> is a glob pattern to a list of files
       // <value> is the target folder inside of the configured output
-    
       "files": {
         "tests/extra/**": "."
       },
     
       // Paths to custom CSS files, to override the default styles
       // These must have been copied as part of "files"
-    
       "styles": [
         "custom.css"
       ]
