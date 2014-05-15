@@ -1,7 +1,7 @@
 var should  = require('should');
 var sinon   = require('sinon');
-var curl    = require('../lib/curl');
-var options = require('../lib/options');
+var curl    = require('../../lib/model/curl');
+var options = require('../../lib/options');
 
 describe('curl', function() {
 

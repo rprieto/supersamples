@@ -17,11 +17,12 @@ describe('instruments / restify', function() {
       route.tokenisedRoute.should.eql('/url/:id?param1=$param1')
     })
   });
-  
+
   describe('params', function() {
     it('should tokenise params', function() {
       params = instrument.params({param1: "value1", param2:"value2"})
       params.should.eql("param1=$param1&param2=$param2")
     });
   });
+
 });

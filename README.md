@@ -11,6 +11,7 @@ Documentation and samples for your Node.js RESTful API
 - define concrete request/response examples in your test suite
 - if you need to, use mocks to make sure you fully control the API reponses
 - add a few explanations in Markdown
+- choose from a few output formats
 - get high-level API documentation that's always up-to-date!
 
 See a live example [over here](http://rprieto.github.io/supersamples).
@@ -43,6 +44,17 @@ it '''
     )
     .end(done)
 ```
+
+## What formats does it generate?
+
+`supersamples` comes with several renderers built-in:
+
+- `html` generates a multi-page static HTML website
+
+And coming soon...
+
+- `markdown` to generate a single Markdown page that can easily be uploaded to Github
+- `json` to generate a single JSON meta-document you can process later
 
 ## What goes in the docs?
 
@@ -79,37 +91,48 @@ You can specify documentation options in a separate **supersamples.opts** file a
 ```js
 {
   
-  // Documentation page title
-
-  "title": "My API docs",
-
-  // Optional Markdown document used at the top of the docs
-  // Heading levels 1 and 2 are appended to the navigation
-
-  "intro": "tests/intro.md",
-
-  // Base URL used in the CURL examples
-
-  "baseUrl": "http://my-api.com",
-
   // Output folder
-
   "output": "docs",
 
-  // Extra files to be copied into the output folder (css, logos, htaccess...)
-  // <key> is a glob pattern to a list of files
-  // <value> is the target folder inside of the configured output
+  // Chosen renderering mode
+  "renderer": {
 
-  "files": {
-    "tests/extra/**": "."
-  },
+    // Generate an HTML website
+    "name": "html",
 
-  // Paths to custom CSS files, to override the default styles
-  // These must have been copied as part of "files"
+    // Options (specific to the chosen renderer)
+    "options": {
 
-  "styles": [
-    "custom.css"
-  ]
+      // Documentation page title
+      "title": "My API docs",
+    
+      // Optional Markdown document used at the top of the docs
+      // Heading levels 1 and 2 are appended to the navigation
+    
+      "intro": "tests/intro.md",
+    
+      // Base URL used in the CURL examples
+    
+      "baseUrl": "http://my-api.com",
+    
+      // Extra files to be copied into the output folder (css, logos, htaccess...)
+      // <key> is a glob pattern to a list of files
+      // <value> is the target folder inside of the configured output
+    
+      "files": {
+        "tests/extra/**": "."
+      },
+    
+      // Paths to custom CSS files, to override the default styles
+      // These must have been copied as part of "files"
+    
+      "styles": [
+        "custom.css"
+      ]
+
+    }
+
+  }
 
 }
 ```
@@ -121,27 +144,3 @@ You can specify documentation options in a separate **supersamples.opts** file a
 &nbsp;&nbsp;&nbsp;&nbsp;- tools like [Apiary](http://apiary.io) or [ApiDoc](http://apidocjs.com) let you document your API in text-format (for example Markdown or JavaScript comments). Just remember to keep these up to date!
 
 &nbsp;&nbsp;&nbsp;&nbsp;- tools like [Swagger](http://developers.helloreverb.com/swagger/) provide a JavaScript API to define your routes. It can generate docs that are always up-to-date, if you don't mind using their syntax instead of vanilla Express or Restify.
-
-## Contributing
-
-Issues & pull requests welcome.
-
-To work on the project locally, simply run:
-
-```bash
-# install dependencies
-npm install
-
-# allow supersamples to require itself
-npm link
-npm link supersamples
-
-# run the unit tests
-npm test
-
-# build the example
-make clean example-docs
-
-# deploy the example docs to Github pages
-make deploy
-```
