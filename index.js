@@ -2,4 +2,10 @@ console.log('');
 
 require('./lib/instrument').setup();
 
-module.exports = require('./lib/reporter');
+try {
+  module.exports = require('./lib/reporter');
+} catch (ex) {
+  console.error('Failed to create Mocha reporter\n');
+  console.error(ex.stack);
+  process.exit(1);
+}
