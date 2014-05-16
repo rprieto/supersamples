@@ -1,4 +1,0 @@
-
-- Write single JSON file
-- Contains all metadata to render full documentation in another process
-

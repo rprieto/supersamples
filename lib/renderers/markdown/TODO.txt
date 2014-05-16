@@ -1,1 +1,0 @@
-Merge pull request from https://github.com/rprieto/supersamples/issues/4

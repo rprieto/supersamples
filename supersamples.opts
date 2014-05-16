@@ -1,35 +1,43 @@
 {
 
-  // Documentation page title
-
-  "title": "API documentation",
-
-  // Optional Markdown document used at the top of the docs
-  // Heading levels 1 and 2 are appended to the navigation
-
-  "intro": "example/intro.md",
-
-  // Base URL used in the CURL examples
-
-  "baseUrl": "http://my-api.com",
-
   // Output folder
-
   "output": "example-docs",
 
-  // Extra files to be copied into the output folder (css, logos, htaccess...)
-  // <key> is a glob pattern to a list of files
-  // <value> is the target folder inside of the configured output
+  // Base URL for all API calls
+  // Used in the CURL examples
+  "baseUrl": "http://my-api.com",
 
-  "files": {
-    "example/files/**": "."
-  },
+  // Renderer configuration
+  "renderer": {
 
-  // Paths to custom CSS files, relative to the output folder
-  // These must have been copied as part of "files"
+    // Generate static HTML docs
+    "name": "html",
 
-  "styles": [
-    "custom.css"
-  ]
+    // Options specific to the HTML renderer
+    "options": {
+
+      // Documentation page title
+      "title": "API documentation",
+
+      // Optional Markdown document used at the top of the docs
+      // Heading levels 1 and 2 are appended to the navigation
+      "intro": "example/intro.md",
+
+      // Extra files to be copied into the output folder (css, logos, htaccess...)
+      // <key> is a glob pattern to a list of files
+      // <value> is the target folder inside of the configured output
+      "files": {
+        "example/files/**": "."
+      },
+
+      // Paths to custom CSS files, relative to the output folder
+      // These must have been copied as part of "files"
+      "styles": [
+        "custom.css"
+      ]
+
+    }
+
+  }
 
 }
