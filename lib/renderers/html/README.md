@@ -38,3 +38,7 @@ You can specify the following in your `supersamples.opts`:
 
 }
 ```
+
+See a live example of the HTML output [over here](http://rprieto.github.io/supersamples).
+
+<a href="http://rprieto.github.io/supersamples"><img src="https://raw.github.com/rprieto/supersamples/master/thumbnail.png" /></a>

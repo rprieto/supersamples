@@ -2,8 +2,9 @@
 
 Documentation and samples for your Node.js RESTful API
 
-[![NPM version](https://badge.fury.io/js/supersamples.png)](http://badge.fury.io/js/supersamples)
-[![Build Status](https://travis-ci.org/rprieto/supersamples.png?branch=master)](https://travis-ci.org/rprieto/supersamples)
+[![NPM](https://nodei.co/npm/supersamples.png)](https://www.npmjs.org/package/supersamples)
+
+[![Travis CI](https://api.travis-ci.org/rprieto/supersamples.png)](https://travis-ci.org/rprieto/supersamples) [![Dependency Status](https://david-dm.org/rprieto/supersamples.png?theme=shields.io)](https://david-dm.org/rprieto/supersamples) [![devDependency Status](https://david-dm.org/rprieto/supersamples/dev-status.png?theme=shields.io)](https://david-dm.org/rprieto/supersamples#info=devDependencies)
 
 `supersamples` is a [Mocha](https://github.com/visionmedia/mocha) reporter that understands [Supertest](https://github.com/visionmedia/supertest) to generate reliable and up-to-date API samples. In a nutshell:
 
