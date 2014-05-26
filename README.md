@@ -56,7 +56,7 @@ See a live example of the HTML output [over here](http://rprieto.github.io/super
 ## How do I set it up?
 
 ```
-npm install supersamples --save
+npm install supersamples --save-dev
 ```
 
 Have a look at the [example folder](http://github.com/rprieto/supersamples/blob/master/example) to get started. You can add tests to the usual `test` folder, or keep them separate if you want. Simply run Mocha with the provided reporter:
