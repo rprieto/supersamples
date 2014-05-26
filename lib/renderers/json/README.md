@@ -2,7 +2,7 @@
 
 You can specify the following in your `supersamples.opts`:
 
-```json
+```js
 {
 
   "renderers": {
@@ -21,7 +21,7 @@ You can specify the following in your `supersamples.opts`:
 
 Which will generate the following file format:
 
-```json
+```js
 [
   {
     "id": 5,
