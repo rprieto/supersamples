@@ -2,7 +2,7 @@
 
 You can specify the following in your `supersamples.opts`:
 
-```json
+```js
 {
 
   "renderers": {
