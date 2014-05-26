@@ -133,6 +133,23 @@ describe('instrument supertest / superagent', function() {
       });
     });
 
+    it('can inspect responses with no bodies', function(done) {
+      var server = http.createServer(function(req, res) {
+        res.writeHead(200);
+        res.end();
+      });
+      request(server)
+      .get('/foo')
+      .end(function(err, res) {
+        capture.get().response.should.eql({
+          status: 200,
+          headers: {},
+          body: '',
+        });
+        done();
+      });
+    });
+
     it('extracts headers that were asserted on', function(done) {
       var server = http.createServer(function(req, res) {
         res.writeHead(200, {

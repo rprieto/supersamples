@@ -1,5 +1,5 @@
 var should  = require('should');
-var lang    = require('../lib/views/highlight_lang');
+var lang    = require('../../../lib/renderers/html/highlight_lang');
 
 describe('custom highlight.js languages', function() {
 
