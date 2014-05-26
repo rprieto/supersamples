@@ -5,7 +5,6 @@ Documentation and samples for your Node.js RESTful API
 [![NPM version](https://badge.fury.io/js/supersamples.png)](http://badge.fury.io/js/supersamples)
 [![Build Status](https://travis-ci.org/rprieto/supersamples.png?branch=master)](https://travis-ci.org/rprieto/supersamples)
 
-
 `supersamples` is a [Mocha](https://github.com/visionmedia/mocha) reporter that understands [Supertest](https://github.com/visionmedia/supertest) to generate reliable and up-to-date API samples. In a nutshell:
 
 - define concrete request/response examples in your test suite
@@ -14,13 +13,9 @@ Documentation and samples for your Node.js RESTful API
 - choose from a few output formats
 - get high-level API documentation that's always up-to-date!
 
-See a live example [over here](http://rprieto.github.io/supersamples).
-
-<a href="http://rprieto.github.io/supersamples"><img src="https://raw.github.com/rprieto/supersamples/master/thumbnail.png" /></a>
-
 *Works with any Node.js `http.Server`, like [Express](https://github.com/visionmedia/express) or [Restify](https://github.com/mcavage/node-restify)*
 
-## So what will my tests look like?
+## What will my tests look like?
 
 Nothing special! Simply use `supertest` in your test suite, and `supersamples` will generate the request/response documentation for you!
 
@@ -45,34 +40,17 @@ it '''
     .end(done)
 ```
 
-## What formats does it generate?
+## What will the docs look like?
 
 `supersamples` comes with several renderers built-in:
 
 - `html` generates a multi-page static HTML website
+- `markdown` to generate a single Markdown page you can easily upload to Github
+- `json` to generate JSON metadata you can process later
 
-And coming soon...
+See a live example of the HTML output [over here](http://rprieto.github.io/supersamples).
 
-- `markdown` to generate a single Markdown page that can easily be uploaded to Github
-- `json` to generate a single JSON meta-document you can process later
-
-## What goes in the docs?
-
-**The navigation & markdown**
-
-- The first 2 levels of `describe()` statements make up the navigation sidebar.
-- Each section then includes the `it()` definition as a Markdown description of the example.
-
-**The request**
-
-- The request headers, including custom ones. However it excludes typically irrelevant headers for the context of documentation (`accept-encoding: gzip, deflate`, `host: http://localhost:1234`...).
-- The request payload, if present.
-
-**The response**
-
-- The response status code, regardless of any `expect()`.
-- The response headers, but only if they were mentioned in `expect()`. The reason is that many frameworks will add dozens of default headers, which could seriously clutter the docs.
-- The actualy response body, regardless of any `expect()`. Note that even if they don't affect the docs, expectations are checked during the generation process. We 100% recommend that you add some to give extra confidence that the HTTP response are correct. 
+<a href="http://rprieto.github.io/supersamples"><img src="https://raw.github.com/rprieto/supersamples/master/thumbnail.png" /></a>
 
 ## How do I set it up?
 
@@ -86,52 +64,52 @@ Have a look at the [example folder](http://github.com/rprieto/supersamples/blob/
 ./node_modules/.bin/mocha --reporter supersamples path/to/tests
 ```
 
-You can specify documentation options in a separate **supersamples.opts** file at the root. This file has to be valid `JSON`, but also supports comments:
+You also need to specify documentation options in a **supersamples.opts** file at the root. This file has to be valid `JSON`, but also supports comments:
 
 ```js
 {
   
-  // Output folder
-  "output": "docs",
+  // Base URL for the API
+  "baseUrl": "http://my-api.com",
 
-  // Chosen renderering mode
-  "renderer": {
+  // One or more renderering modes
+  // And their associated options
+  "renderers": {
 
-    // Generate an HTML website
-    "name": "html",
-
-    // Options (specific to the chosen renderer)
-    "options": {
-
-      // Documentation page title
-      "title": "My API docs",
-    
-      // Optional Markdown document used at the top of the docs
-      // Heading levels 1 and 2 are appended to the navigation
-      "intro": "tests/intro.md",
-    
-      // Base URL used in the CURL examples
-      "baseUrl": "http://my-api.com",
-    
-      // Extra files to be copied into the output folder (css, logos, htaccess...)
-      // <key> is a glob pattern to a list of files
-      // <value> is the target folder inside of the configured output
-      "files": {
-        "tests/extra/**": "."
-      },
-    
-      // Paths to custom CSS files, to override the default styles
-      // These must have been copied as part of "files"
-      "styles": [
-        "custom.css"
-      ]
-
-    }
+    "<name>": { ... }
+    "<name>": { ... }
 
   }
 
 }
 ```
+
+See each renderer for the set of available options:
+
+- [HTML](https://github.com/rprieto/supersamples/tree/master/lib/renderers/html/README.md)
+- [JSON](https://github.com/rprieto/supersamples/tree/master/lib/renderers/json/README.md)
+- [Markdown](https://github.com/rprieto/supersamples/tree/master/lib/renderers/markdown/README.md)
+
+## What goes in the docs?
+
+**The navigation**
+
+In the HTML renderer, the first few levels of `describe()` statements make up the navigation sidebar.
+
+**Your markdown content**
+
+The `it()` statements can contain valid Markdown, which make up the description of each example.
+
+**The requests**
+
+- The request headers, including custom ones. However it excludes typically irrelevant headers for the context of documentation (`accept-encoding: gzip, deflate`, `host: http://localhost:1234`...).
+- The request payload & attachements.
+
+**The responses**
+
+- The response status code, regardless of any `expect()`.
+- The response headers, but only if they were mentioned in `expect()`. The reason is that many frameworks will add dozens of default headers, which could seriously clutter the docs.
+- The actualy response body, regardless of any `expect()`. Note that even if they don't affect the docs, expectations are checked during the generation process. We 100% recommend that you add some to give extra confidence that the HTTP response are correct. 
 
 ## What doesn't it do?
 

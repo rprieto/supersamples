@@ -1,5 +1,3 @@
-console.log('');
-
 require('./lib/instrument').setup();
 
 try {

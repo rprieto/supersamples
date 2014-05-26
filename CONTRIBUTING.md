@@ -19,10 +19,10 @@ npm link supersamples
 npm test
 ```
 
-## Building the example website
+## Building the example docs (website, json, markdown)
 
 ```bash
-make clean example-docs
+make clean example/build
 ```
 
 ## Deploying the example docs to Github pages

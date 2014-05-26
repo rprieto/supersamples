@@ -1,33 +1,43 @@
 {
 
-  // Output folder
-  "output": "example-docs",
+  //
+  // Supersamples options
+  // Note: all paths are relative to where Mocha is executed
+  //
 
-  // Base URL for all API calls
-  // Used in the CURL examples
+
+  // Base URL for all API calls (used in CURL examples)
   "baseUrl": "http://my-api.com",
 
-  // Renderer configuration
-  "renderer": {
 
-    // Generate static HTML docs
-    "name": "html",
+  //
+  // Renderers
+  //
 
-    // Options specific to the HTML renderer
-    "options": {
+  "renderers": {
+
+
+    //
+    // Full HTML website
+    //
+
+    "html": {
+
+      // Output folder
+      "outputFolder": "example-docs",
 
       // Documentation page title
       "title": "API documentation",
 
       // Optional Markdown document used at the top of the docs
       // Heading levels 1 and 2 are appended to the navigation
-      "intro": "example/intro.md",
+      "intro": "example/docs/intro.md",
 
       // Extra files to be copied into the output folder (css, logos, htaccess...)
       // <key> is a glob pattern to a list of files
       // <value> is the target folder inside of the configured output
       "files": {
-        "example/files/**": "."
+        "example/docs/files/**": "."
       },
 
       // Paths to custom CSS files, relative to the output folder
@@ -36,7 +46,32 @@
         "custom.css"
       ]
 
+    },
+
+
+    //
+    // Single JSON file with all the samples metadata
+    //
+
+    "json": {
+
+      // Output file path
+      "outputFile": "example-docs/samples.json"
+
+    },
+
+
+    //
+    // Single Markdown file
+    //
+
+    "markdown": {
+
+      // Output file path
+      "outputFile": "example-docs/samples.md"
+
     }
+
 
   }
 
