@@ -9,7 +9,7 @@ clean:
 
 # generate the docs from the Mocha tests
 example-docs: example lib supersamples.opts node_modules
-	@node_modules/.bin/mocha --compilers coffee:coffee-script --reporter supersamples example/test
+	@node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter supersamples example/test
 
 # shortcut to open the generated website
 open:
