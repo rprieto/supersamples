@@ -1,0 +1,244 @@
+[
+  {
+    "id": 0,
+    "summary": "Get list of sports\n\n- list is ordered alphabetically\n- doesn't return sports with no active competitions",
+    "hierarchy": [
+      "Events",
+      "Sports",
+      "Get list of sports"
+    ],
+    "request": {
+      "route": "/sports",
+      "headers": {
+        "accept": "application/json"
+      },
+      "method": "GET",
+      "path": "/sports"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "sports": [
+          {
+            "id": 1,
+            "name": "Soccer"
+          },
+          {
+            "id": 2,
+            "name": "Tennis"
+          }
+        ]
+      }
+    },
+    "snippets": {
+      "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports\""
+    }
+  },
+  {
+    "id": 1,
+    "summary": "Competitions by sport\n\n- List of **open** competitions for a given sport.\n- Returns all countries by default.    ",
+    "hierarchy": [
+      "Events",
+      "Competitions",
+      "Competitions by sport"
+    ],
+    "request": {
+      "route": "/sports/:id/competitions",
+      "headers": {
+        "accept": "application/json"
+      },
+      "method": "GET",
+      "path": "/sports/1/competitions"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "competitions": [
+          {
+            "id": 1,
+            "country": "gb",
+            "name": "English premier league"
+          },
+          {
+            "id": 2,
+            "country": "fr",
+            "name": "Coupe de France"
+          }
+        ]
+      }
+    },
+    "snippets": {
+      "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports/1/competitions\""
+    }
+  },
+  {
+    "id": 2,
+    "summary": "Filter by country\n\n- Only get competitions for a given country\n- Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)",
+    "hierarchy": [
+      "Events",
+      "Competitions",
+      "Filter by country"
+    ],
+    "request": {
+      "route": "/sports/:id/competitions?country=$country",
+      "headers": {
+        "accept": "application/json"
+      },
+      "method": "GET",
+      "path": "/sports/1/competitions?country=fr"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "competitions": [
+          {
+            "id": 2,
+            "country": "fr",
+            "name": "Coupe de France"
+          }
+        ]
+      }
+    },
+    "snippets": {
+      "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports/1/competitions?country=fr\""
+    }
+  },
+  {
+    "id": 3,
+    "summary": "Status check\n\nHealth check route to check the status of all downstreams system.",
+    "hierarchy": [
+      "Admin",
+      "Reporting",
+      "Status check"
+    ],
+    "request": {
+      "route": "/status",
+      "headers": {
+        "accept": "application/json"
+      },
+      "method": "GET",
+      "path": "/status"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "status": "OK"
+      }
+    },
+    "snippets": {
+      "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/status\""
+    }
+  },
+  {
+    "id": 4,
+    "summary": "Buying tickets\n\n- this is an **authenticated** call\n- you can purchase multiple tickets at once\n- keep your ticket numbers somewhere safe",
+    "hierarchy": [
+      "User",
+      "Tickets",
+      "Buying tickets"
+    ],
+    "request": {
+      "route": "/tickets",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json",
+        "content-length": 32
+      },
+      "method": "POST",
+      "path": "/tickets",
+      "data": {
+        "competitionId": 4,
+        "quantity": 3
+      }
+    },
+    "response": {
+      "status": 201,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": {
+        "eventName": "Australian Open",
+        "tickets": [
+          "ticket1",
+          "ticket2",
+          "ticket3"
+        ]
+      }
+    },
+    "snippets": {
+      "curl": "curl -X POST -H \"content-type: application/json\" -H \"accept: application/json\" -H \"content-length: 32\" -d '{\"competitionId\":4,\"quantity\":3}' \"http://my-api.com/tickets\""
+    }
+  },
+  {
+    "id": 5,
+    "summary": "Cancelling a ticket\n\n- this is an **authenticated** call\n- your account will be re-credited with the amount",
+    "hierarchy": [
+      "User",
+      "Tickets",
+      "Cancelling a ticket"
+    ],
+    "request": {
+      "route": "/tickets/:id",
+      "headers": {
+        "accept": "application/json"
+      },
+      "method": "DELETE",
+      "path": "/tickets/123"
+    },
+    "response": {
+      "status": 204,
+      "headers": {},
+      "body": ""
+    },
+    "snippets": {
+      "curl": "curl -X DELETE -H \"accept: application/json\" \"http://my-api.com/tickets/123\""
+    }
+  },
+  {
+    "id": 6,
+    "summary": "Some sports events require proof of ID for purchase.\nBefore purchasing a ticket, you will need to upload\nyour ID for automated verification.",
+    "hierarchy": [
+      "User",
+      "Tickets",
+      "Some sports events require proof of ID for purchase."
+    ],
+    "request": {
+      "files": [
+        {
+          "name": "license.jpg",
+          "path": "/Users/Romain/Documents/dev/supersamples/example/test/license.jpg",
+          "content": "<Buffer 28045 bytes>"
+        }
+      ],
+      "route": "/account/verify",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "multipart/form-data; boundary=xsqvs7sodhokot245twruvzhb4pfy13n"
+      },
+      "method": "POST",
+      "path": "/account/verify"
+    },
+    "response": {
+      "status": 200,
+      "headers": {},
+      "body": {
+        "verificationStatus": "pending"
+      }
+    },
+    "snippets": {
+      "curl": "curl -X POST -H \"accept: application/json\" -H \"content-type: multipart/form-data; boundary=xsqvs7sodhokot245twruvzhb4pfy13n\" -T \"license.jpg\" \"http://my-api.com/account/verify\""
+    }
+  }
+]
