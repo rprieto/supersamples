@@ -11,15 +11,15 @@
   <div class="request">
     <div class="url">
       {{request.method}}
-      {{#if route.tokenisedRoute}}
-        {{code-tokens route.tokenisedRoute}}
+      {{#if request.route}}
+        {{code-tokens request.route}}
       {{else}}
         {{code request.path}}
       {{/if}}
     </div>
     Sample request
     <div class="expanders">
-      {{#if route.tokenisedRoute}}
+      {{#if request.route}}
         <a href="#sample{{id}}-url">url</a><span>
       {{/if}}
       {{#hasKeys request.headers}}
