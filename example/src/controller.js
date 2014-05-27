@@ -46,3 +46,9 @@ exports.buyTickets = function (req, res) {
 exports.cancelTicket = function (req, res) {
   res.send(204);
 };
+
+exports.verifyAccount = function (req, res) {
+  res.send(200, {
+    verificationStatus: 'pending'
+  })
+};

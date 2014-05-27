@@ -51,9 +51,8 @@
   <div id="sample{{id}}-request-attachments" class="collapsible">
     {{#each request.files}}
       <pre><code class="wrap">
-        <span class="attachment">{{name}}</span>
-        <br /><br />
-        {{content}}
+        <div class="attachment">{{name}}</div>
+        {{attachment name content}}
       </code></pre>
     {{/each}}
   </div>

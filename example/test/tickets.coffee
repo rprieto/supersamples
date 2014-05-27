@@ -2,6 +2,7 @@
 
 request  = require 'supertest'
 sinon    = require 'sinon'
+path     = require 'path'
 server   = require '../src/server'
 fixtures = require './fixtures'
 sandbox  = null
@@ -51,4 +52,19 @@ describe 'User', ->
        .set('Accept', 'application/json')
        .expect(204)
        .expect({})
+       .end(done)
+
+
+    it '''
+       Some sports events require proof of ID for purchase.
+       Before purchasing a ticket, you will need to upload
+       your ID for automated verification.
+       ''', (done) ->
+
+       request(server)
+       .post('/account/verify')
+       .set('Accept', 'application/json')
+       .attach('id', path.join(__dirname, 'license.jpg'), 'license.jpg')
+       .expect(200)
+       .expect(verificationStatus: 'pending')
        .end(done)
