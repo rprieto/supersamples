@@ -48,8 +48,7 @@ describe('curl', function() {
         data: {
           hello: 'world',
           value: 123,
-        },
-        binary: false
+        }
       });
       cmd.should.eql('curl -X POST -d \'{"hello":"world","value":123}\' "http://localhost/foo"');
     });
@@ -58,8 +57,7 @@ describe('curl', function() {
       var cmd = curl.fromRequest({
         method: 'POST',
         path: '/foo',
-        data: null,
-        binary: true
+        data: new Buffer([0x01, 0x02, 0x03, 0x04]),
       });
       cmd.should.eql('cat binary_file | curl -X POST --data-binary @- "http://localhost/foo"');
     });

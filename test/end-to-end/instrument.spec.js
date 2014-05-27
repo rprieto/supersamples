@@ -85,8 +85,7 @@ describe('instrument supertest / superagent', function() {
       req.write(new Buffer([0x01, 0x02, 0x03, 0x04]))
       req.end(function() {
         capture.get().request.should.eql({
-          data: '\u0001\u0002\u0003\u0004',
-          binary: true,
+          data: new Buffer([0x01, 0x02, 0x03, 0x04]),
           headers: {},
           method: 'POST',
           path: '/foo'

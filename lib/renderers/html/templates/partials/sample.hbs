@@ -42,11 +42,7 @@
     {{code-headers request.headers}}
   </div>
   <div id="sample{{id}}-request-payload" class="collapsible">
-    {{#if request.binary}}
-      <pre><code>{{request.data}}</code></pre>
-    {{else}}
-      {{code-json request.data}}
-    {{/if}}
+    {{payload request.data}}
   </div>
   <div id="sample{{id}}-request-attachments" class="collapsible">
     {{#each request.files}}

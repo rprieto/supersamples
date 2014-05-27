@@ -56,7 +56,8 @@
     "json": {
 
       // Output file path
-      "outputFile": "example-docs/samples.json"
+      "outputFile": "example-docs/samples.json",
+      "includeBuffers": false
 
     },
 

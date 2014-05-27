@@ -38,8 +38,8 @@
     "wrench": "~1.5.6",
     "cjson": "~0.3.0",
     "glob": "~4.0.0",
-    "deep-extend": "~0.2.8",
-    "sinon": "~1.10.0"
+    "sinon": "~1.10.0",
+    "deep": "0.0.2"
   },
   "devDependencies": {
     "mocha": "~1.19.0",

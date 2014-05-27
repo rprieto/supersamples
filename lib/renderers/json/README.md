@@ -10,7 +10,10 @@ You can specify the following in your `supersamples.opts`:
     "json": {
 
       // Relative path to the output file
-      "outputFile": "path/to/file.json"
+      "outputFile": "path/to/file.json",
+
+      // Whether or not to stringify buffers (binary data, attachements...)
+      "includeBuffers": true
 
     }
 
