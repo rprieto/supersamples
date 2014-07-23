@@ -62,9 +62,9 @@
       {{#hasKeys response.headers}}
         <a href="#sample{{id}}-response-headers">headers</a>
       {{/hasKeys}}
-      {{#hasKeys response.body}}
+      {{#if response.body}}
         <a href="#sample{{id}}-response-body">body</a>
-      {{/hasKeys}}
+      {{/if}}
     </div>
   </div>
 
