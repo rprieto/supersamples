@@ -16,7 +16,7 @@
     "superagent"
   ],
   "author": "Romain Prieto",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/rprieto/supersamples.git"
