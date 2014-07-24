@@ -2,9 +2,12 @@
 
 Documentation and samples for your Node.js RESTful API
 
-[![NPM](https://nodei.co/npm/supersamples.png)](https://www.npmjs.org/package/supersamples)
+[![NPM](http://img.shields.io/npm/v/supersamples.svg?style=flat)](https://npmjs.org/package/supersamples)
+[![License](http://img.shields.io/npm/l/supersamples.svg?style=flat)](https://github.com/rprieto/supersamples)
 
-[![Travis CI](https://api.travis-ci.org/rprieto/supersamples.png)](https://travis-ci.org/rprieto/supersamples) [![Dependency Status](https://david-dm.org/rprieto/supersamples.png?theme=shields.io)](https://david-dm.org/rprieto/supersamples) [![devDependency Status](https://david-dm.org/rprieto/supersamples/dev-status.png?theme=shields.io)](https://david-dm.org/rprieto/supersamples#info=devDependencies)
+[![Build Status](http://img.shields.io/travis/rprieto/supersamples.svg?style=flat)](http://travis-ci.org/rprieto/supersamples)
+[![Dependencies](http://img.shields.io/david/rprieto/supersamples.svg?style=flat)](https://david-dm.org/rprieto/supersamples)
+[![Dev dependencies](http://img.shields.io/david/dev/rprieto/supersamples.svg?style=flat)](https://david-dm.org/rprieto/supersamples)
 
 `supersamples` is a [Mocha](https://github.com/visionmedia/mocha) reporter that understands [Supertest](https://github.com/visionmedia/supertest) to generate reliable and up-to-date API samples. In a nutshell:
 
