@@ -13,6 +13,11 @@ describe('instruments / restify', function() {
       var route = instrument.route({spec:{path:'/url/:id'}}, 'param1=$param1')
       route.should.eql('/url/:id?param1=$param1');
     })
+
+    it('should return null if route does not exists', function () {
+      var route = instrument.route();
+      should.not.exist(route);
+    })
   });
 
   describe('params', function() {
