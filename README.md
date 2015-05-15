@@ -72,11 +72,11 @@ You also need to specify documentation options in a **supersamples.opts** file a
 
 ```js
 {
-  
+
   // Base URL for the API
   "baseUrl": "http://my-api.com",
 
-  // One or more renderering modes
+  // One or more rendering modes
   // And their associated options
   "renderers": {
 
@@ -96,29 +96,45 @@ See each renderer for the set of available options:
 
 ## What goes in the docs?
 
-**The navigation**
+Well it depends on the renderer you choose, but they all work off the same set of data:
 
-In the HTML renderer, the first few levels of `describe()` statements make up the navigation sidebar.
+**The hierarchy**
+
+The nested suite of `describe()` statements that lead to your test becomes the hierarchy / breadcrumbs. In the HTML renderer, the first 2 levels make up the navigation sidebar.
 
 **Your markdown content**
 
 The `it()` statements can contain valid Markdown, which make up the description of each example.
 
+**A name for each sample**
+
+By default, the content of the `it` also becomes your sample name. This is used in the `JSON` renderer to help you identify samples. You can also override the name with
+
+```js
+it 'gets a list of sports', (done) ->
+  @supersamples = { name: 'valid list' }
+  supersamples(server, 'valid list')
+    .get('/sports')
+    .end(done)
+```
+
 **The requests**
 
 - The request headers, including custom ones. However it excludes typically irrelevant headers for the context of documentation (`accept-encoding: gzip, deflate`, `host: http://localhost:1234`...).
-- The request payload & attachements.
+- The request payload & file attachments.
 
 **The responses**
 
 - The response status code, regardless of any `expect()`.
 - The response headers, but only if they were mentioned in `expect()`. The reason is that many frameworks will add dozens of default headers, which could seriously clutter the docs.
-- The actualy response body, regardless of any `expect()`. Note that even if they don't affect the docs, expectations are checked during the generation process. We 100% recommend that you add some to give extra confidence that the HTTP response are correct. 
+- The actually response body, regardless of any `expect()`. Note that even if they don't affect the docs, expectations are checked during the generation process. We 100% recommend that you add some to give extra confidence that the HTTP response are correct.
 
 ## What doesn't it do?
 
-`supersamples` DOES NOT provide a way to describe every path or query string parameter. It's meant to give you reliable but low-cost API samples. If you want a very detailled API description, you might like other tools better:
+`supersamples` DOES NOT provide a way to describe every path or query string parameter. It's meant to give you reliable but low-cost API samples. If you want a very detailed API description, you might like other tools better:
 
 &nbsp;&nbsp;&nbsp;&nbsp;- tools like [Apiary](http://apiary.io) or [ApiDoc](http://apidocjs.com) let you document your API in text-format (for example Markdown or JavaScript comments). Just remember to keep these up to date!
 
 &nbsp;&nbsp;&nbsp;&nbsp;- tools like [Swagger](http://developers.helloreverb.com/swagger/) provide a JavaScript API to define your routes. It can generate docs that are always up-to-date, if you don't mind using their syntax instead of vanilla Express or Restify.
+
+In our current project, we actually use `swagger` and `supersamples` together to generate formal API specs as well as request/response examples, and display both side by side in our API portal.

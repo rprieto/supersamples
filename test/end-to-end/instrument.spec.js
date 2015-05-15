@@ -5,15 +5,15 @@ var capture = require('../../lib/capture');
 
 describe('instrument supertest / superagent', function() {
 
+  beforeEach(function() {
+    capture.reset();
+  });
+
   describe('request', function() {
 
     var server = http.createServer(function(req, res) {
       res.writeHead(200);
       res.end();
-    });
-
-    beforeEach(function() {
-      capture.reset();
     });
 
     it('inspects the method and path', function(done) {
