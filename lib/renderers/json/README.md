@@ -13,7 +13,10 @@ You can specify the following in your `supersamples.opts`:
       "outputFile": "path/to/file.json",
 
       // Whether or not to stringify buffers (binary data, attachements...)
-      "includeBuffers": true
+      "includeBuffers": true,
+      
+      // Whether to wrap the JSON document in a top-level {samples: ...}
+      "objectWrapper": true
 
     }
 
