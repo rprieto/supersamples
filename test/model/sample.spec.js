@@ -26,6 +26,17 @@ describe('sample', function() {
     });
   });
 
+  it("\n  removes surrounding whitespace from a samples name  \n", function(done){
+    var test = this.test;
+    request(server)
+    .get('/foo')
+    .end(function(err, res) {
+      var s = sample.create(test, capture.get().request, capture.get().response);
+      s.should.have.property('name', 'removes surrounding whitespace from a samples name');
+      done();
+    });
+  });
+
   it('can override the name with a custom property', function(done) {
     var test = this.test;
     this.supersamples = { name: 'my custom sample' };
