@@ -22,7 +22,7 @@ npm test
 ## Building the example docs (website, json, markdown)
 
 ```bash
-make clean example/build
+make clean example-docs
 ```
 
 ## Deploying the example docs to Github pages

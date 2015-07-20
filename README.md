@@ -76,6 +76,10 @@ You also need to specify documentation options in a **supersamples.opts** file a
   // Base URL for the API
   "baseUrl": "http://my-api.com",
 
+  // Mocha reporter to display test results
+  // e.g. Dot, TAP, Spec...
+  "reporter": "Dot",
+
   // One or more rendering modes
   // And their associated options
   "renderers": {
