@@ -117,7 +117,7 @@ By default, the content of the `it` also becomes your sample name. This is used 
 ```js
 it 'gets a list of sports', (done) ->
   @supersamples = { name: 'valid list' }
-  supersamples(server, 'valid list')
+  request(server)
     .get('/sports')
     .end(done)
 ```
