@@ -42,7 +42,7 @@
     "deep": "0.0.2"
   },
   "devDependencies": {
-    "mocha": "~1.20.0",
+    "mocha": "~2.2.5",
     "should": "~4.0.4",
     "supertest": "~0.13.0",
     "coffee-script": "~1.7.1",
