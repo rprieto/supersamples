@@ -44,12 +44,12 @@
   "devDependencies": {
     "mocha": "~2.2.5",
     "should": "~4.0.4",
-    "supertest": "~0.13.0",
+    "supertest": "~1.1.0",
     "coffee-script": "~1.7.1",
     "express": "~4.6.1",
     "restify": "~2.8.1"
   },
   "peerDependencies": {
-    "supertest": ">0.8.0"
+    "supertest": ">1.0.0"
   }
 }
