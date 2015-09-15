@@ -1,6 +1,6 @@
 [
   {
-    "id": 0,
+    "name": "Get list of sports\n\n- list is ordered alphabetically\n- doesn't return sports with no active competitions",
     "summary": "Get list of sports\n\n- list is ordered alphabetically\n- doesn't return sports with no active competitions",
     "hierarchy": [
       "Events",
@@ -35,10 +35,11 @@
     },
     "snippets": {
       "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports\""
-    }
+    },
+    "id": 0
   },
   {
-    "id": 1,
+    "name": "Competitions by sport\n\n- List of **open** competitions for a given sport.\n- Returns all countries by default.",
     "summary": "Competitions by sport\n\n- List of **open** competitions for a given sport.\n- Returns all countries by default.    ",
     "hierarchy": [
       "Events",
@@ -75,10 +76,11 @@
     },
     "snippets": {
       "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports/1/competitions\""
-    }
+    },
+    "id": 1
   },
   {
-    "id": 2,
+    "name": "Filter by country\n\n- Only get competitions for a given country\n- Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)",
     "summary": "Filter by country\n\n- Only get competitions for a given country\n- Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)",
     "hierarchy": [
       "Events",
@@ -110,10 +112,11 @@
     },
     "snippets": {
       "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports/1/competitions?country=fr\""
-    }
+    },
+    "id": 2
   },
   {
-    "id": 3,
+    "name": "Status check\n\nHealth check route to check the status of all downstreams system.",
     "summary": "Status check\n\nHealth check route to check the status of all downstreams system.",
     "hierarchy": [
       "Admin",
@@ -139,10 +142,11 @@
     },
     "snippets": {
       "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/status\""
-    }
+    },
+    "id": 3
   },
   {
-    "id": 4,
+    "name": "Buying tickets\n\n- this is an **authenticated** call\n- you can purchase multiple tickets at once\n- keep your ticket numbers somewhere safe",
     "summary": "Buying tickets\n\n- this is an **authenticated** call\n- you can purchase multiple tickets at once\n- keep your ticket numbers somewhere safe",
     "hierarchy": [
       "User",
@@ -179,10 +183,11 @@
     },
     "snippets": {
       "curl": "curl -X POST -H \"content-type: application/json\" -H \"accept: application/json\" -H \"content-length: 32\" -d '{\"competitionId\":4,\"quantity\":3}' \"http://my-api.com/tickets\""
-    }
+    },
+    "id": 4
   },
   {
-    "id": 5,
+    "name": "Cancelling a ticket\n\n- this is an **authenticated** call\n- your account will be re-credited with the amount",
     "summary": "Cancelling a ticket\n\n- this is an **authenticated** call\n- your account will be re-credited with the amount",
     "hierarchy": [
       "User",
@@ -204,10 +209,11 @@
     },
     "snippets": {
       "curl": "curl -X DELETE -H \"accept: application/json\" \"http://my-api.com/tickets/123\""
-    }
+    },
+    "id": 5
   },
   {
-    "id": 6,
+    "name": "Some sports events require proof of ID for purchase.\nBefore purchasing a ticket, you will need to upload\nyour ID for automated verification.",
     "summary": "Some sports events require proof of ID for purchase.\nBefore purchasing a ticket, you will need to upload\nyour ID for automated verification.",
     "hierarchy": [
       "User",
@@ -225,7 +231,8 @@
       "route": "/account/verify",
       "headers": {
         "accept": "application/json",
-        "content-type": "multipart/form-data; boundary=xsqvs7sodhokot245twruvzhb4pfy13n"
+        "content-type": "multipart/form-data; boundary=--------------------------091985277083219309486902",
+        "content-length": 28250
       },
       "method": "POST",
       "path": "/account/verify"
@@ -238,7 +245,8 @@
       }
     },
     "snippets": {
-      "curl": "curl -X POST -H \"accept: application/json\" -H \"content-type: multipart/form-data; boundary=xsqvs7sodhokot245twruvzhb4pfy13n\" -T \"license.jpg\" \"http://my-api.com/account/verify\""
-    }
+      "curl": "curl -X POST -H \"accept: application/json\" -H \"content-type: multipart/form-data; boundary=--------------------------091985277083219309486902\" -H \"content-length: 28250\" -T \"license.jpg\" \"http://my-api.com/account/verify\""
+    },
+    "id": 6
   }
 ]

@@ -199,7 +199,7 @@
     
   </div>
   <div id="sample4-request-curl" class="collapsible">
-    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> POST <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-type: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-length: 32"</span> <span class="hljs-attribute">-d</span> <span class="hljs-string">'{"competitionId":4,"quantity":3}'</span> <span class="hljs-string">"http://my-api.com/tickets"</span></code></pre>
+    <pre><code class="wrap">curl -X POST -H <span class="hljs-string">"content-type: application/json"</span> -H <span class="hljs-string">"accept: application/json"</span> -H <span class="hljs-string">"content-length: 32"</span> -d <span class="hljs-string">'{"</span>competitionId<span class="hljs-string">":4,"</span>quantity<span class="hljs-string">":3}'</span> <span class="hljs-string">"http://my-api.com/tickets"</span></code></pre>
   </div>
 
   <div class="response">
@@ -284,7 +284,7 @@
     
   </div>
   <div id="sample5-request-curl" class="collapsible">
-    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> DELETE <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-string">"http://my-api.com/tickets/123"</span></code></pre>
+    <pre><code class="wrap">curl -X <span class="hljs-keyword">DELETE</span> -H <span class="hljs-string">"accept: application/json"</span> <span class="hljs-string">"http://my-api.com/tickets/123"</span></code></pre>
   </div>
 
   <div class="response">
@@ -348,7 +348,8 @@ your ID for automated verification.</p>
   </div>
   <div id="sample6-request-headers" class="collapsible">
     <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
-<span class="hljs-attribute">content-type</span>: <span class="hljs-string">multipart/form-data; boundary=xsqvs7sodhokot245twruvzhb4pfy13n</span>
+<span class="hljs-attribute">content-type</span>: <span class="hljs-string">multipart/form-data; boundary=--------------------------091985277083219309486902</span>
+<span class="hljs-attribute">content-length</span>: <span class="hljs-string">28250</span>
 </code></pre>
   </div>
   <div id="sample6-request-payload" class="collapsible">
@@ -363,7 +364,7 @@ your ID for automated verification.</p>
     
   </div>
   <div id="sample6-request-curl" class="collapsible">
-    <pre><code class="wrap">curl <span class="hljs-attribute">-X</span> POST <span class="hljs-attribute">-H</span> <span class="hljs-string">"accept: application/json"</span> <span class="hljs-attribute">-H</span> <span class="hljs-string">"content-type: multipart/form-data; boundary=xsqvs7sodhokot245twruvzhb4pfy13n"</span> <span class="hljs-attribute">-T</span> <span class="hljs-string">"license.jpg"</span> <span class="hljs-string">"http://my-api.com/account/verify"</span></code></pre>
+    <pre><code class="wrap"><span class="hljs-title">curl</span> -X POST -H <span class="hljs-string">"accept: application/json"</span> -H <span class="hljs-string">"content-type: multipart/form-data; boundary=--------------------------091985277083219309486902"</span> -H <span class="hljs-string">"content-length: 28250"</span> -T <span class="hljs-string">"license.jpg"</span> <span class="hljs-string">"http://my-api.com/account/verify"</span></code></pre>
   </div>
 
   <div class="response">
@@ -400,7 +401,7 @@ your ID for automated verification.</p>
     <div class="medium-8 columns">
       <ul class="no-bullet">
         <li>
-          Documentation generated on May 27th 2014, 3:18 pm
+          Documentation generated on September 15th 2015, 2:58 pm
         </li>
         <li>
           <a href="http://github.com/rprieto/supersamples">
