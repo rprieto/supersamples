@@ -5,4 +5,5 @@ example-docs
 .travis.yml
 Makefile
 logo.png
-thumbnail.jpg
+thumbnail.png
+test
