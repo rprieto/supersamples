@@ -16,7 +16,13 @@ You can specify the following in your `supersamples.opts`:
       "title": "Postman Collection Title"
 
       // Format version (optional) - currently only postmanV2 is supported
-      "version": 2
+      "version": 2,
+      
+      // Generate a postman test suite
+      "generateTests": true,
+
+      // Additional postman variables
+      "variables": []
 
     }
 
