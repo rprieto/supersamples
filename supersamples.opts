@@ -72,7 +72,8 @@
       "variables": [],
       "version": 2, // others not supported at the moment
       "generateTests": true
-    }
+
+    },
 
 
     //
