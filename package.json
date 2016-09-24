@@ -24,7 +24,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node example/index.js",
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha 'test/**/*.spec.js'"
   },
   "dependencies": {
     "lodash": "~2.4.1",
@@ -42,12 +42,13 @@
     "deep": "0.0.2"
   },
   "devDependencies": {
-    "mocha": "~2.2.5",
-    "should": "~4.0.4",
-    "supertest": "~1.1.0",
     "coffee-script": "~1.7.1",
     "express": "~4.6.1",
-    "restify": "~2.8.1"
+    "jsonschema": "^1.1.0",
+    "mocha": "~2.2.5",
+    "restify": "~2.8.1",
+    "should": "~4.0.4",
+    "supertest": "~1.1.0"
   },
   "peerDependencies": {
     "supertest": ">1.0.0"

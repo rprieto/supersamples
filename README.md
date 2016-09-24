@@ -51,6 +51,7 @@ it '''
 - `html` generates a multi-page static HTML website
 - `markdown` to generate a single Markdown page you can easily upload to Github
 - `json` to generate JSON metadata you can process later
+- `postman` to generate a postman collection for your API
 
 See a live example of the HTML output [over here](http://rprieto.github.io/supersamples).
 
@@ -97,6 +98,7 @@ See each renderer for the set of available options:
 - [HTML](https://github.com/rprieto/supersamples/tree/master/lib/renderers/html/README.md)
 - [JSON](https://github.com/rprieto/supersamples/tree/master/lib/renderers/json/README.md)
 - [Markdown](https://github.com/rprieto/supersamples/tree/master/lib/renderers/markdown/README.md)
+- [Postman](https://github.com/rprieto/supersamples/tree/master/lib/renderers/postman/README.md)
 
 ## What goes in the docs?
 
