@@ -69,10 +69,13 @@
       // Output file path
       "outputFile": "example-docs/samples.json",
       "title": "Postman Collection Title",
-      "variables": [],
       "version": 2, // others not supported at the moment
-      "generateTests": true
-
+      "generateTests": true,
+      "replace": {
+        "headers": {},
+        "body": {}
+      },
+      "additionalItems": []
     },
 
 
