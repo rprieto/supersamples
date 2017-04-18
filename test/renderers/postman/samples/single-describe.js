@@ -28,5 +28,5 @@ describe('Single outer <describe> block', function () {
     helper.processRequest(this.test, request);
   });
 
-})
+});
 

@@ -36,4 +36,4 @@ describe('Outer <describe> block', function () {
 
   });
 
-})
+});

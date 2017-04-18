@@ -99,4 +99,4 @@ module.exports = {
   getFolders: getFolders,
   getRootRequests: getRootRequests,
   getAllRequests: getAllRequests
-}
+};
