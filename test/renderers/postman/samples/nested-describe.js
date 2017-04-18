@@ -6,21 +6,21 @@ describe('Outer <describe> block', function () {
 
   describe('Inner <describe> block 1', function () {
 
-    it('GET request 1', function () {
+    it('GET request 1', function (done) {
       var request = helper.server.get('/200').set('authToken', 'TokenValue').expect(200);
-      helper.processRequest(this.test, request);
+      helper.processRequest(this.test, request, done);
     });
 
-    it('GET request 2', function () {
+    it('GET request 2', function (done) {
       var request = helper.server.get('/404').expect(404);
-      helper.processRequest(this.test, request);
+      helper.processRequest(this.test, request, done);
     });
 
   });
 
   describe('Inner <describe> block 2', function () {
     
-    it('POST request 3', function () {
+    it('POST request 3', function (done) {
       var request = helper.server
         .post('/200')
         .send({
@@ -31,7 +31,7 @@ describe('Outer <describe> block', function () {
         })
         .expect(200);
 
-      helper.processRequest(this.test, request);
+      helper.processRequest(this.test, request, done);
     });
 
   });
