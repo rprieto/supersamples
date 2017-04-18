@@ -4,6 +4,7 @@ var Validator = require('jsonschema').Validator;
 var schema    = require('./collection-schema-v2.0.0.json');
 var samples   = require('./../../../lib/model/samples');
 var options   = require('./../../../lib/options');
+var _   = require('lodash');
 
 var v = new Validator();
 
@@ -50,7 +51,7 @@ describe('Postman renderer', function() {
     });
 
     describe('Generates correct output', function () {
-      it('dgenerates two folders', function () {
+      it('generates two folders', function () {
         helper.getFolders(collection).length.should.equal(2);
       });
 
@@ -138,7 +139,8 @@ describe('Postman renderer', function() {
       
       postmanOptions.replace = {
         headers: {
-          authToken: '{{ token }}'
+          authToken: '{{ token }}',
+          'content-length': null
         },
         body: {
           foo: '{{ payload }}',
@@ -156,16 +158,30 @@ describe('Postman renderer', function() {
       })
     });
 
+    function headerAsMap(headerArr) {
+      return _.reduce(headerArr, function(memo, item) {
+        memo[item.key] = item.value;
+        return memo;
+      }, {});
+    }
+
     it('correctly replaces headers from options', function () {
       var sample = requests[0].request;
-      sample.header[0].value.should.equal('{{ token }}');
+      var headers = headerAsMap(sample.header);
+      headers['authtoken'].should.equal('{{ token }}');
+    });
+
+    it('correctly removes headers set as null from options', function () {
+      var sample = requests[2].request;
+      var headers = headerAsMap(sample.header);
+      should(headers['content-length']).be.type('undefined');
     });
 
     it('correctly replaces body from options', function () {
       var sample = requests[2].request;
       var body = JSON.parse(sample.body.raw);
       body.payloadField.foo.should.equal('{{ payload }}');
-      should.not.exist(body.payloadField.bar);
+      should(body.payloadField.bar).be.type('undefined');
     });
 
     it('adds additional items from `additionalItems` options', function () {
