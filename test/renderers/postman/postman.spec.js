@@ -184,6 +184,12 @@ describe('Postman renderer', function() {
       should(body.payloadField.bar).be.type('undefined');
     });
 
+    it('correctly handles arrays in body', function () {
+      var sample = requests[2].request;
+      var body = JSON.parse(sample.body.raw);
+      body.payloadField.fooArray.should.eql([1, 2, 3]);
+    });
+
     it('adds additional items from `additionalItems` options', function () {
       var lastItem = collection.item[collection.item.length - 1];
       lastItem.name.should.equal('additional item');

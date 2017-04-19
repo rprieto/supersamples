@@ -20,8 +20,9 @@ describe('Single outer <describe> block', function () {
       .send({
         payloadField: {
           foo: '777',
-          bar: '123'
-        } 
+          bar: '123',
+          fooArray: [1, 2, 3]
+        }
       })
       .expect(200);
 
