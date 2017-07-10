@@ -49,4 +49,36 @@ describe('sample', function() {
     });
   });
 
+  it('can parse a string response into JSON', function(done) {
+    var server = http.createServer(function(req, res) {
+      res.writeHead(200);
+      res.write(JSON.stringify({ hello: 'world' }));
+      res.end();
+    });
+    var test = this.test;
+    request(server)
+    .get('/foo')
+    .end(function(err, res) {
+      var s = sample.create(test, capture.get().request, capture.get().response);
+      s.response.should.have.property('body', { hello: 'world' });
+      done();
+    });
+  });
+
+  it('can handle a string response that is not JSON', function(done) {
+    var server = http.createServer(function(req, res) {
+      res.writeHead(200);
+      res.write("This is not json");
+      res.end();
+    });
+    var test = this.test;
+    request(server)
+    .get('/foo')
+    .end(function(err, res) {
+      var s = sample.create(test, capture.get().request, capture.get().response);
+      s.response.should.have.property('body', "This is not json");
+      done();
+    });
+  });
+
 });
