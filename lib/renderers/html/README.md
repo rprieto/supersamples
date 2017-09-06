@@ -10,7 +10,7 @@ You can specify the following in your `supersamples.opts`:
     "html": {
 
       // Relative path to the output folder
-      "outputFolder": "path/to/output"
+      "outputFolder": "path/to/output",
 
       // Renderer options
       "title": "My API docs",
