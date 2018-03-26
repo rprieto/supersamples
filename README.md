@@ -141,6 +141,21 @@ it 'gets a single sport', (done) ->
         .end(done)
     )
 ```
+
+**Ignoring whole tests**
+
+Perhaps you include you docs specs in the same tests as other integration tests that you don't want appearing in your docs
+
+You can exclude them with the following
+
+```js
+it 'backdoor entrance to get a password', (done) ->
+  @supersamples = { ignore: true }
+  request(server)
+    .get('/supersecretthing')
+    .end(done)
+```
+
 **The requests**
 
 - The request headers, including custom ones. However it excludes typically irrelevant headers for the context of documentation (`accept-encoding: gzip, deflate`, `host: http://localhost:1234`...).
