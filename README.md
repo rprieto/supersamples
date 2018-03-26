@@ -23,13 +23,12 @@ Documentation and samples for your Node.js RESTful API
 
 Nothing special! Simply use `supertest` in your test suite, and `supersamples` will generate the request/response documentation for you!
 
-```coffee
-it '''
+```js
+it(`
 # Get list of sports
 - list is ordered alphabetically
 - doesn't return sports with no active competitions
-''', (done) ->
-
+`, function (done) {
   request(server)
     .get('/sports')
     .set('Accept', 'application/json')
@@ -42,6 +41,7 @@ it '''
       ]
     )
     .end(done)
+})
 ```
 
 ## What will the docs look like?
@@ -117,11 +117,46 @@ The `it()` statements can contain valid Markdown, which make up the description 
 By default, the content of the `it` also becomes your sample name. This is used in the `JSON` renderer to help you identify samples. You can also override the name with
 
 ```js
-it 'gets a list of sports', (done) ->
-  @supersamples = { name: 'valid list' }
+it('gets a list of sports', function () {
+  this.supersamples = { name: 'valid list' }
   request(server)
     .get('/sports')
     .end(done)
+})
+```
+
+**Ignoring Requests**
+
+Supersamples instruments every request that goes through supertest by default. If you are making multiple requests per `it`, sometimes the results can be a bit problematic as request and responses get merged.
+
+You can explicitly ignore certain requests from being captured by setting the following header
+
+```js
+it('gets a single sport', function (done) {
+  request(server)
+    .get('/sports')
+    .set('SupersamplesIgnore', 'true')
+    .end(function (err, response) {
+      request(server)
+        .get(`/sports/${response.body[0].id}`)
+        .end(done)
+    })
+})
+```
+
+**Ignoring whole tests**
+
+Perhaps you include you docs specs in the same tests as other integration tests that you don't want appearing in your docs
+
+You can exclude them with the following
+
+```js
+it('backdoor entrance to get a password', function (done) {
+  this.supersamples = { ignore: true }
+  request(server)
+    .get('/supersecretthing')
+    .end(done)
+})
 ```
 
 **The requests**
