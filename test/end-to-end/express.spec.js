@@ -18,6 +18,9 @@ describe('instrument express / supertest / superagent', function() {
     server.post('/foo', function(req, res) {
       res.send({ hello: 'world' })
     })
+    server.post('/foobar', function(req, res) {
+      res.send({ yoyo: 'heyhey' })
+    })
 
     it('inspects the method and path', function(done) {
       request(server)
@@ -84,6 +87,33 @@ describe('instrument express / supertest / superagent', function() {
           route: '/foo'
         });
         done();
+      });
+    });
+
+    it('supports ignoring certain requests', function(done) {
+      request(server)
+      .post('/foo')
+      .set('supersamplesignore', 'true')
+      .send({value: 1234})
+      .end(function() {
+        request(server)
+        .post('/foobar')
+        .send({foo: 'bar'})
+        .end(function() {
+          capture.get().request.should.eql({
+            data: {
+              foo: 'bar'
+            },
+            headers: {
+              'content-type': 'application/json',
+              'content-length': 13
+            },
+            method: 'POST',
+            path: '/foobar',
+            route: '/foobar'
+          });
+          done();
+        });
       });
     });
 
