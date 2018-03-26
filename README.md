@@ -124,6 +124,23 @@ it 'gets a list of sports', (done) ->
     .end(done)
 ```
 
+**Ignoring Requests**
+
+Supersamples instruments every request that goes through supertest by default. If you are making multiple requests per `it`, sometimes the results can be a bit problematic as request and responses get merged.
+
+You can explicitly ignore certain requests from being captured by setting the following header
+
+```js
+it 'gets a single sport', (done) ->
+  request(server)
+    .get('/sports')
+    .set('SupersamplesIgnore', 'true')
+    .end((err, response) ->
+      request(server)
+        .get('/sports/' + response.body[0].id)
+        .end(done)
+    )
+```
 **The requests**
 
 - The request headers, including custom ones. However it excludes typically irrelevant headers for the context of documentation (`accept-encoding: gzip, deflate`, `host: http://localhost:1234`...).
