@@ -46,7 +46,7 @@
     "express": "^4.16.4",
     "jsonschema": "^1.1.0",
     "mocha": "^5.2.0",
-    "restify": "~2.8.1",
+    "restify": "^7.2.1",
     "should": "~4.0.4",
     "supertest": "~1.1.0"
   },
