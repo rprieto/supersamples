@@ -45,7 +45,7 @@
     "coffee-script": "~1.7.1",
     "express": "^4.16.4",
     "jsonschema": "^1.1.0",
-    "mocha": "~2.2.5",
+    "mocha": "^5.2.0",
     "restify": "~2.8.1",
     "should": "~4.0.4",
     "supertest": "~1.1.0"
