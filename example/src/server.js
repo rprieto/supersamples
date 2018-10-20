@@ -2,8 +2,12 @@ var restify = require('restify');
 var controller = require('./controller');
 
 var server = restify.createServer();
-server.use(restify.bodyParser({"mapParams": false}))
-server.use(restify.queryParser({"mapParams": false}))
+server.use(restify.plugins.bodyParser({
+    "mapParams": false,
+}))
+server.use(restify.plugins.queryParser({
+    "mapParams": false,
+}))
 
 //
 // Our main 3 routes
