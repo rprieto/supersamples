@@ -48,7 +48,7 @@
     "mocha": "^5.2.0",
     "restify": "^7.2.1",
     "should": "~4.0.4",
-    "supertest": "~1.1.0"
+    "supertest": "^3.3.0"
   },
   "peerDependencies": {
     "supertest": ">1.0.0"
