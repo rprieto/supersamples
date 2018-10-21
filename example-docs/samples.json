@@ -1,252 +1,257 @@
-[
-  {
-    "name": "Get list of sports\n\n- list is ordered alphabetically\n- doesn't return sports with no active competitions",
-    "summary": "Get list of sports\n\n- list is ordered alphabetically\n- doesn't return sports with no active competitions",
-    "hierarchy": [
-      "Events",
-      "Sports",
-      "Get list of sports"
-    ],
-    "request": {
-      "route": "/sports",
-      "headers": {
-        "accept": "application/json"
-      },
-      "method": "GET",
-      "path": "/sports"
-    },
-    "response": {
-      "status": 200,
-      "headers": {
-        "content-type": "application/json"
-      },
-      "body": {
-        "sports": [
-          {
-            "id": 1,
-            "name": "Soccer"
-          },
-          {
-            "id": 2,
-            "name": "Tennis"
-          }
-        ]
-      }
-    },
-    "snippets": {
-      "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports\""
-    },
-    "id": 0
+{
+  "info": {
+    "name": "Postman Collection Title",
+    "_postman_id": "",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
-  {
-    "name": "Competitions by sport\n\n- List of **open** competitions for a given sport.\n- Returns all countries by default.",
-    "summary": "Competitions by sport\n\n- List of **open** competitions for a given sport.\n- Returns all countries by default.    ",
-    "hierarchy": [
-      "Events",
-      "Competitions",
-      "Competitions by sport"
-    ],
-    "request": {
-      "route": "/sports/:id/competitions",
-      "headers": {
-        "accept": "application/json"
-      },
-      "method": "GET",
-      "path": "/sports/1/competitions"
-    },
-    "response": {
-      "status": 200,
-      "headers": {
-        "content-type": "application/json"
-      },
-      "body": {
-        "competitions": [
-          {
-            "id": 1,
-            "country": "gb",
-            "name": "English premier league"
-          },
-          {
-            "id": 2,
-            "country": "fr",
-            "name": "Coupe de France"
-          }
-        ]
-      }
-    },
-    "snippets": {
-      "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports/1/competitions\""
-    },
-    "id": 1
-  },
-  {
-    "name": "Filter by country\n\n- Only get competitions for a given country\n- Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)",
-    "summary": "Filter by country\n\n- Only get competitions for a given country\n- Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)",
-    "hierarchy": [
-      "Events",
-      "Competitions",
-      "Filter by country"
-    ],
-    "request": {
-      "route": "/sports/:id/competitions?country=$country",
-      "headers": {
-        "accept": "application/json"
-      },
-      "method": "GET",
-      "path": "/sports/1/competitions?country=fr"
-    },
-    "response": {
-      "status": 200,
-      "headers": {
-        "content-type": "application/json"
-      },
-      "body": {
-        "competitions": [
-          {
-            "id": 2,
-            "country": "fr",
-            "name": "Coupe de France"
-          }
-        ]
-      }
-    },
-    "snippets": {
-      "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/sports/1/competitions?country=fr\""
-    },
-    "id": 2
-  },
-  {
-    "name": "Status check\n\nHealth check route to check the status of all downstreams system.",
-    "summary": "Status check\n\nHealth check route to check the status of all downstreams system.",
-    "hierarchy": [
-      "Admin",
-      "Reporting",
-      "Status check"
-    ],
-    "request": {
-      "route": "/status",
-      "headers": {
-        "accept": "application/json"
-      },
-      "method": "GET",
-      "path": "/status"
-    },
-    "response": {
-      "status": 200,
-      "headers": {
-        "content-type": "application/json"
-      },
-      "body": {
-        "status": "OK"
-      }
-    },
-    "snippets": {
-      "curl": "curl -X GET -H \"accept: application/json\" \"http://my-api.com/status\""
-    },
-    "id": 3
-  },
-  {
-    "name": "Buying tickets\n\n- this is an **authenticated** call\n- you can purchase multiple tickets at once\n- keep your ticket numbers somewhere safe",
-    "summary": "Buying tickets\n\n- this is an **authenticated** call\n- you can purchase multiple tickets at once\n- keep your ticket numbers somewhere safe",
-    "hierarchy": [
-      "User",
-      "Tickets",
-      "Buying tickets"
-    ],
-    "request": {
-      "route": "/tickets",
-      "headers": {
-        "content-type": "application/json",
-        "accept": "application/json",
-        "content-length": 32
-      },
-      "method": "POST",
-      "path": "/tickets",
-      "data": {
-        "competitionId": 4,
-        "quantity": 3
-      }
-    },
-    "response": {
-      "status": 201,
-      "headers": {
-        "content-type": "application/json"
-      },
-      "body": {
-        "eventName": "Australian Open",
-        "tickets": [
-          "ticket1",
-          "ticket2",
-          "ticket3"
-        ]
-      }
-    },
-    "snippets": {
-      "curl": "curl -X POST -H \"content-type: application/json\" -H \"accept: application/json\" -H \"content-length: 32\" -d '{\"competitionId\":4,\"quantity\":3}' \"http://my-api.com/tickets\""
-    },
-    "id": 4
-  },
-  {
-    "name": "Cancelling a ticket\n\n- this is an **authenticated** call\n- your account will be re-credited with the amount",
-    "summary": "Cancelling a ticket\n\n- this is an **authenticated** call\n- your account will be re-credited with the amount",
-    "hierarchy": [
-      "User",
-      "Tickets",
-      "Cancelling a ticket"
-    ],
-    "request": {
-      "route": "/tickets/:id",
-      "headers": {
-        "accept": "application/json"
-      },
-      "method": "DELETE",
-      "path": "/tickets/123"
-    },
-    "response": {
-      "status": 204,
-      "headers": {},
-      "body": ""
-    },
-    "snippets": {
-      "curl": "curl -X DELETE -H \"accept: application/json\" \"http://my-api.com/tickets/123\""
-    },
-    "id": 5
-  },
-  {
-    "name": "Some sports events require proof of ID for purchase.\nBefore purchasing a ticket, you will need to upload\nyour ID for automated verification.",
-    "summary": "Some sports events require proof of ID for purchase.\nBefore purchasing a ticket, you will need to upload\nyour ID for automated verification.",
-    "hierarchy": [
-      "User",
-      "Tickets",
-      "Some sports events require proof of ID for purchase."
-    ],
-    "request": {
-      "files": [
+  "item": [
+    {
+      "name": "Sports",
+      "description": "",
+      "item": [
         {
-          "name": "license.jpg",
-          "path": "/Users/Romain/Documents/dev/supersamples/example/test/license.jpg",
-          "content": "<Buffer 28045 bytes>"
+          "name": "Get list of sports\n\n- list is ordered alphabetically\n- doesn't return sports with no active competitions",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+              }
+            }
+          ],
+          "request": {
+            "url": "http://my-api.com/sports",
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "description": "Get list of sports\n\n- list is ordered alphabetically\n- doesn't return sports with no active competitions",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": []
         }
-      ],
-      "route": "/account/verify",
-      "headers": {
-        "accept": "application/json",
-        "content-type": "multipart/form-data; boundary=--------------------------091985277083219309486902",
-        "content-length": 28250
-      },
-      "method": "POST",
-      "path": "/account/verify"
+      ]
     },
-    "response": {
-      "status": 200,
-      "headers": {},
-      "body": {
-        "verificationStatus": "pending"
-      }
+    {
+      "name": "Competitions",
+      "description": "",
+      "item": [
+        {
+          "name": "Competitions by sport\n\n- List of **open** competitions for a given sport.\n- Returns all countries by default.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+              }
+            }
+          ],
+          "request": {
+            "url": "http://my-api.com/sports/1/competitions",
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "description": "Competitions by sport\n\n- List of **open** competitions for a given sport.\n- Returns all countries by default.    ",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter by country\n\n- Only get competitions for a given country\n- Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+              }
+            }
+          ],
+          "request": {
+            "url": "http://my-api.com/sports/1/competitions?country=fr",
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "description": "Filter by country\n\n- Only get competitions for a given country\n- Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": []
+        }
+      ]
     },
-    "snippets": {
-      "curl": "curl -X POST -H \"accept: application/json\" -H \"content-type: multipart/form-data; boundary=--------------------------091985277083219309486902\" -H \"content-length: 28250\" -T \"license.jpg\" \"http://my-api.com/account/verify\""
+    {
+      "name": "Reporting",
+      "description": "",
+      "item": [
+        {
+          "name": "Status check\n\nHealth check route to check the status of all downstreams system.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+              }
+            }
+          ],
+          "request": {
+            "url": "http://my-api.com/status",
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "description": "Status check\n\nHealth check route to check the status of all downstreams system.",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": []
+        }
+      ]
     },
-    "id": 6
-  }
-]
+    {
+      "name": "Tickets",
+      "description": "",
+      "item": [
+        {
+          "name": "Buying tickets\n\n- this is an **authenticated** call\n- you can purchase multiple tickets at once\n- keep your ticket numbers somewhere safe",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "tests[\"Status code is 201\"] = responseCode.code === 201;"
+              }
+            }
+          ],
+          "request": {
+            "url": "http://my-api.com/tickets",
+            "method": "POST",
+            "header": [
+              {
+                "key": "content-type",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "content-length",
+                "value": 32,
+                "description": ""
+              }
+            ],
+            "description": "Buying tickets\n\n- this is an **authenticated** call\n- you can purchase multiple tickets at once\n- keep your ticket numbers somewhere safe",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"competitionId\": 4,\n  \"quantity\": 3\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancelling a ticket\n\n- this is an **authenticated** call\n- your account will be re-credited with the amount",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "tests[\"Status code is 204\"] = responseCode.code === 204;"
+              }
+            }
+          ],
+          "request": {
+            "url": "http://my-api.com/tickets/123",
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "description": "Cancelling a ticket\n\n- this is an **authenticated** call\n- your account will be re-credited with the amount",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Some sports events require proof of ID for purchase.\nBefore purchasing a ticket, you will need to upload\nyour ID for automated verification.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+              }
+            }
+          ],
+          "request": {
+            "url": "http://my-api.com/account/verify",
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "content-type",
+                "value": "multipart/form-data; boundary=--------------------------343415058297715242295000",
+                "description": ""
+              },
+              {
+                "key": "content-length",
+                "value": 28252,
+                "description": ""
+              }
+            ],
+            "description": "Some sports events require proof of ID for purchase.\nBefore purchasing a ticket, you will need to upload\nyour ID for automated verification.",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

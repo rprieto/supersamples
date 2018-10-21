@@ -38,7 +38,7 @@ describe 'Events', ->
 
        - list is ordered alphabetically
        - doesn't return sports with no active competitions
-       ''', (done) ->
+       ''', () ->
 
        # The expected request/response sample using "supertest"
        # 
@@ -60,7 +60,6 @@ describe 'Events', ->
            { id: 2, name: 'Tennis' }
          ]
        )
-       .end(done)
 
 
 
@@ -72,7 +71,7 @@ describe 'Events', ->
 
        - List of **open** competitions for a given sport.
        - Returns all countries by default.    
-       ''', (done) ->
+       ''', () ->
 
        request(server)
        .get('/sports/1/competitions')
@@ -85,14 +84,13 @@ describe 'Events', ->
            { id: 2, country: 'fr', name: 'Coupe de France' }
          ]
        )
-       .end(done)
 
     it '''
        Filter by country
 
        - Only get competitions for a given country
        - Uses the official ISO [country codes](http://en.wikipedia.org/wiki/ISO_3166-1)
-       ''', (done) ->
+       ''', () ->
 
        request(server)
        .get('/sports/1/competitions?country=fr')
@@ -104,4 +102,3 @@ describe 'Events', ->
            { id: 2, country: 'fr', name: 'Coupe de France' }
          ]
        )
-       .end(done)
