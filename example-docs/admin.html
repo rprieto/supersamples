@@ -2,250 +2,201 @@
 <html>
 
     <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>API documentation</title>
-      <link rel="stylesheet" href="css/foundation.min.css" />
-      <link rel="stylesheet" type="text/css" href="css/styles.css" />
-      <link rel="stylesheet" type="text/css" href="css/highlight.github.css" />
-      
-        <link rel="stylesheet" type="text/css" href="custom.css" />
-      
-  </head>
-
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>API documentation</title>
+        <link rel="stylesheet" href="css/foundation.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="css/highlight.github.css" />
+          <link rel="stylesheet" type="text/css" href="custom.css" />
+    </head>
 
   <body class="antialiased hide-extras">
 
     <div class="sidebar-top">
-  <div class="logo"></div>
-  API documentation
-</div>
-
-<div class="sidebar">
-  
-  <form>
-    <input tabindex="1" id="autocomplete" type="search"
-          placeholder="search" autocomplete="off" />
-  </form>
-
-  <nav>
-    <ul class="side-nav">
-
+      <div class="logo"></div>
+      API documentation
+    </div>
+    
+    <div class="sidebar">
       
-
-          <li class="divider"></li>
-
-          <li class="heading">
-            <a href="index.html">Intro</a>
-          </li>
-
-          
-            <li>
-              <a href="index.html#event-information" data-search="Event information">
-                Event information
-                
-              </a>
-            </li>
-          
-            <li>
-              <a href="index.html#authenticated-calls" data-search="Authenticated calls">
-                Authenticated calls
-                
-              </a>
-            </li>
-          
-
-      
-
-          <li class="divider"></li>
-
-          <li class="heading">
-            <a href="admin.html">Admin</a>
-          </li>
-
-          
-            <li>
-              <a href="admin.html#reporting" data-search="Reporting">
-                Reporting
-                
-                  <span class="label">1</span>
-                
-              </a>
-            </li>
-          
-
-      
-
-          <li class="divider"></li>
-
-          <li class="heading">
-            <a href="events.html">Events</a>
-          </li>
-
-          
-            <li>
-              <a href="events.html#competitions" data-search="Competitions">
-                Competitions
-                
-                  <span class="label">2</span>
-                
-              </a>
-            </li>
-          
-            <li>
-              <a href="events.html#sports" data-search="Sports">
-                Sports
-                
-                  <span class="label">1</span>
-                
-              </a>
-            </li>
-          
-
-      
-
-          <li class="divider"></li>
-
-          <li class="heading">
-            <a href="user.html">User</a>
-          </li>
-
-          
-            <li>
-              <a href="user.html#tickets" data-search="Tickets">
-                Tickets
-                
-                  <span class="label">3</span>
-                
-              </a>
-            </li>
-          
-
-      
-
-    </ul>
-  </nav>
-
-</div>
-
+      <form>
+        <input tabindex="1" id="autocomplete" type="search"
+              placeholder="search" autocomplete="off" />
+      </form>
+    
+      <nav>
+        <ul class="side-nav">
+    
+    
+              <li class="divider"></li>
+    
+              <li class="heading">
+                <a href="index.html">Intro</a>
+              </li>
+    
+                <li>
+                  <a href="index.html#event-information" data-search="Event information">
+                    Event information
+                  </a>
+                </li>
+                <li>
+                  <a href="index.html#authenticated-calls" data-search="Authenticated calls">
+                    Authenticated calls
+                  </a>
+                </li>
+    
+    
+              <li class="divider"></li>
+    
+              <li class="heading">
+                <a href="admin.html">Admin</a>
+              </li>
+    
+                <li>
+                  <a href="admin.html#reporting" data-search="Reporting">
+                    Reporting
+                      <span class="label">1</span>
+                  </a>
+                </li>
+    
+    
+              <li class="divider"></li>
+    
+              <li class="heading">
+                <a href="events.html">Events</a>
+              </li>
+    
+                <li>
+                  <a href="events.html#competitions" data-search="Competitions">
+                    Competitions
+                      <span class="label">2</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="events.html#sports" data-search="Sports">
+                    Sports
+                      <span class="label">1</span>
+                  </a>
+                </li>
+    
+    
+              <li class="divider"></li>
+    
+              <li class="heading">
+                <a href="user.html">User</a>
+              </li>
+    
+                <li>
+                  <a href="user.html#tickets" data-search="Tickets">
+                    Tickets
+                      <span class="label">3</span>
+                  </a>
+                </li>
+    
+    
+        </ul>
+      </nav>
+    
+    </div>
 
     <div class="content-top"></div>
     <div class="content">
 
       <h1>Admin</h1>
 
-      
         <div class="group">
           <a name="reporting"></a>
           <h2>Reporting</h2>
           <ul class="samples">
-            
               <li>
                 <div class="summary">
-  <p>Status check</p>
-<p>Health check route to check the status of all downstreams system.</p>
-
-</div>
-
-<div class="operation">
-
-  <div class="method color-GET">
-    GET
-  </div>
-
-  <div class="request">
-    <div class="url">
-      GET
-      
-        <pre><code>/status</code></pre>
-      
-    </div>
-    Sample request
-    <div class="expanders">
-      
-        <a href="#sample3-url">url</a><span>
-      
-      
-        <a href="#sample3-request-headers">headers</a><span>
-      
-      
-      
-      <a href="#sample3-request-curl">curl</a><span>
-    </div>
-  </div>
-
-  <div id="sample3-url" class="collapsible">
-    <pre><code>/status</code></pre>
-  </div>
-  <div id="sample3-request-headers" class="collapsible">
-    <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
-</code></pre>
-  </div>
-  <div id="sample3-request-payload" class="collapsible">
-    
-  </div>
-  <div id="sample3-request-attachments" class="collapsible">
-    
-  </div>
-  <div id="sample3-request-curl" class="collapsible">
-    <pre><code class="wrap">curl -X <span class="hljs-keyword">GET</span> -H <span class="hljs-string">"accept: application/json"</span> <span class="hljs-string">"http://my-api.com/status"</span></code></pre>
-  </div>
-
-  <div class="response">
-    Response 200 OK
-    <div class="expanders">
-      
-        <a href="#sample3-response-headers">headers</a>
-      
-      
-        <a href="#sample3-response-body">body</a>
-      
-    </div>
-  </div>
-
-  <div id="sample3-response-headers" class="collapsible">
-    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
-</code></pre>
-  </div>
-  <div id="sample3-response-body" class="collapsible">
-    <pre><code>{
-  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span>
-</span>}</code></pre>
-  </div>
-
-</div>
-
+                  <p>Status check</p>
+                <p>Health check route to check the status of all downstreams system.</p>
+                
+                </div>
+                
+                <div class="operation">
+                
+                  <div class="method color-GET">
+                    GET
+                  </div>
+                
+                  <div class="request">
+                    <div class="url">
+                      GET
+                        <pre><code>/status</code></pre>
+                    </div>
+                    Sample request
+                    <div class="expanders">
+                        <a href="#sample3-request-headers">headers</a><span>
+                      <a href="#sample3-request-curl">curl</a><span>
+                    </div>
+                  </div>
+                
+                  <div id="sample3-url" class="collapsible">
+                    <pre><code>/status</code></pre>
+                  </div>
+                  <div id="sample3-request-headers" class="collapsible">
+                    <pre><code><span class="hljs-attribute">accept</span>: <span class="hljs-string">application/json</span>
+                </code></pre>
+                  </div>
+                  <div id="sample3-request-payload" class="collapsible">
+                    
+                  </div>
+                  <div id="sample3-request-attachments" class="collapsible">
+                  </div>
+                  <div id="sample3-request-curl" class="collapsible">
+                    <pre><code class="wrap">curl -X <span class="hljs-keyword">GET</span> -H <span class="hljs-string">"accept: application/json"</span> <span class="hljs-string">"http://my-api.com/status"</span></code></pre>
+                  </div>
+                
+                  <div class="response">
+                    Response 200 OK
+                    <div class="expanders">
+                        <a href="#sample3-response-headers">headers</a>
+                        <a href="#sample3-response-body">body</a>
+                    </div>
+                  </div>
+                
+                  <div id="sample3-response-headers" class="collapsible">
+                    <pre><code><span class="hljs-attribute">content-type</span>: <span class="hljs-string">application/json</span>
+                </code></pre>
+                  </div>
+                  <div id="sample3-response-body" class="collapsible">
+                    <pre><code>{
+                  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span>
+                </span>}</code></pre>
+                  </div>
+                
+                </div>
               </li>
-            
           </ul>
         </div>
-      
       
     </div>
 
     <footer>
-  <div class="row">
-    <div class="medium-8 columns">
-      <ul class="no-bullet">
-        <li>
-          Documentation generated on September 15th 2015, 2:58 pm
-        </li>
-        <li>
-          <a href="http://github.com/rprieto/supersamples">
-            Powered by supersamples
-            <div class="logo">
-              <div class="swatch color-GET"></div>
-              <div class="swatch color-POST"></div>
-              <div class="swatch color-PUT"></div>
-              <div class="swatch color-DELETE"></div>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</footer>
-
+      <div class="row">
+        <div class="medium-8 columns">
+          <ul class="no-bullet">
+            <li>
+              Documentation generated on October 21st 2018, 9:58 am
+            </li>
+            <li>
+              <a href="http://github.com/rprieto/supersamples">
+                Powered by supersamples
+                <div class="logo">
+                  <div class="swatch color-GET"></div>
+                  <div class="swatch color-POST"></div>
+                  <div class="swatch color-PUT"></div>
+                  <div class="swatch color-DELETE"></div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 
     <script src="scripts/zepto.min.js"></script>
     <script src="scripts/scripts.js"></script>

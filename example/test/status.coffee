@@ -13,7 +13,7 @@ describe 'Admin', ->
        Status check
 
        Health check route to check the status of all downstreams system.
-       ''', (done) ->
+       ''', () ->
 
        request(server)
        .get('/status')
@@ -21,4 +21,3 @@ describe 'Admin', ->
        .expect(200)
        .expect('Content-Type', /json/)
        .expect(status: 'OK')
-       .end(done)
