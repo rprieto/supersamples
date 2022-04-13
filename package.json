@@ -27,7 +27,7 @@
     "test": "./node_modules/.bin/mocha 'test/**/*.spec.js'"
   },
   "dependencies": {
-    "async": "~0.9.0",
+    "async": "~3.2.2",
     "cjson": "~0.3.0",
     "deep": "0.0.2",
     "fs-extra": "~0.10.0",
